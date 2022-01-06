@@ -13,7 +13,16 @@ cwd = os.getcwd()
 root.geometry( "300x300" )
 
 def sb_open():
-    lab_sb_open_button.config(text="20%")
+    sb_open_counter = 0
+    f = open(cwd + "\\sb_open_counter.txt", "r")
+    for line in f:
+        sb_open_counter = int(line.strip())
+    f.close()
+    sb_open_counter += 1
+    f = open(cwd + "\\sb_open_counter.txt", "w")
+    f.write(str(sb_open_counter))
+    f.close()
+    lab_sb_open_button.config(text = str(sb_open_counter) + "%")
 
 selected = ""
 
