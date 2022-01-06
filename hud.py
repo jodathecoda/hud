@@ -5,6 +5,7 @@ from tkinter import *
 
 # Create object
 root = Tk()
+root.title("HUD")
 
 global cwd
 cwd = os.getcwd()
@@ -32,6 +33,7 @@ def show():
     f = open(cwd + "\\selected.txt", "w")
     f.write(label1.cget("text"))
     selected = label1.cget("text")
+    root.title("HUD " + selected)
     f.close()
 	
 options = []
