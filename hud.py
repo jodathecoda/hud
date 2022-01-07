@@ -11,7 +11,7 @@ global cwd
 cwd = os.getcwd()
 
 # Adjust size
-root.geometry( "300x300" )
+root.geometry( "250x300" )
 
 def sb_open():
     sb_open_counter = 0
@@ -71,11 +71,16 @@ drop.grid(column=0, row=0)
 button = Button( root , text = "Select" , command = show )#.pack()
 button.grid(column=1, row=0)
 
+preflop_counter_sb = 0 #number of hands
+preflop_counter_bb = 0
+flop_counter = 0
+
+
 # Create Label
 label1 = Label( root , text = " " )
 label1.grid(column=2, row=0)
 
-label2 = Label( root , text = " ----- PREFLOP SB -----" )
+label2 = Label( root , text = " --- PREFLOP SB --- #" + str(preflop_counter_sb) )
 label2.grid(column=0, row=1)
 sb_open_button = Button( root , text = "Open" , command = sb_open )#.pack()
 sb_open_button.grid(column=0, row=2)
@@ -84,7 +89,7 @@ lab_sb_open_button.grid(column=1, row=2)
 sb_fold_button = Button( root , text = "Fold" , command = show )#.pack()
 sb_fold_button.grid(column=0, row=3)
 
-label3 = Label( root , text = " ----- PREFLOP BB -----" )
+label3 = Label( root , text = " --- PREFLOP BB --- #" + str(preflop_counter_bb))
 label3.grid(column=0, row=4)
 bb_fold_button = Button( root , text = "Fold" , command = show )#.pack()
 bb_fold_button.grid(column=0, row=5)
@@ -93,12 +98,17 @@ bb_call_button.grid(column=0, row=6)
 bb_raise_button = Button( root , text = "Raise" , command = show )#.pack()
 bb_raise_button.grid(column=0, row=7)
 
-label4 = Label( root , text = " ----- POSTFLOP -----" )
+label4 = Label( root , text = " --- POSTFLOP --- #" + str(flop_counter))
 label4.grid(column=0, row=8)
 sb_cbet_button = Button( root , text = "Cbet" , command = show )#.pack()
 sb_cbet_button.grid(column=0, row=9)
 sb_check_button = Button( root , text = "Check" , command = show )#.pack()
 sb_check_button.grid(column=0, row=10)
+
+entry_new_villain = Entry(root)
+entry_new_villain.grid(column=0, row=11)
+save_new_villain_button = Button( root , text = "Create new Villain" , command = show )
+save_new_villain_button.grid(column=1, row=11)
 
 # Execute tkinter
 root.mainloop()
