@@ -37,6 +37,8 @@ def new_vil():
         f.close()
 
 def sb_open():
+    pass
+    '''
     sb_open_counter = 0
     if os.path.isfile(cwd + "\\villains\\" + selected + "\\preflop_sb_open.txt"):
         f = open(cwd + "\\villains\\" + selected + "\\preflop_sb_open.txt", "r")
@@ -49,6 +51,7 @@ def sb_open():
         f.write("\n" + str(sb_open_counter))
         f.close()
         lab_sb_open_button.config(text = str(sb_open_counter) + "%")
+    '''
 
 selected = ""
 
@@ -57,6 +60,9 @@ def show():
     label1.config( text = clicked.get() )
     selected = label1.cget("text")
     root.title("HUD " + selected)
+    f = open(cwd + "//neo.txt", "w")
+    f.write(selected)
+    f.close()
 
 '''	
 f = open(cwd + "\\villains\\names.txt", "r")
