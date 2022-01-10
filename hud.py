@@ -63,6 +63,15 @@ def show():
     f = open(cwd + "//neo.txt", "w")
     f.write(selected)
     f.close()
+    f = open(cwd + "\\neo.txt", "r")
+    chosen_one = f.read().strip()
+    f.close()
+    sb_open_counter = 0
+    if os.path.isfile(cwd + "\\villains\\" + chosen_one + "\\preflop_sb_open.txt"):
+        f = open(cwd + "\\villains\\" + chosen_one + "\\preflop_sb_open.txt", "r")
+        sb_open_counter = int(f.read())
+        f.close()
+        lab_sb_open_button.config(text = str(sb_open_counter) + "%")
 
 '''	
 f = open(cwd + "\\villains\\names.txt", "r")
