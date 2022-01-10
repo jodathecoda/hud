@@ -37,21 +37,21 @@ def new_vil():
         f.close()
 
 def sb_open():
-    pass
-    '''
+    f = open(cwd + "\\neo.txt", "r")
+    chosen_one = f.read().strip()
+    f.close()
     sb_open_counter = 0
-    if os.path.isfile(cwd + "\\villains\\" + selected + "\\preflop_sb_open.txt"):
-        f = open(cwd + "\\villains\\" + selected + "\\preflop_sb_open.txt", "r")
-        for line in f:
-            sb_open_counter = int(line.strip())
+    if os.path.isfile(cwd + "\\villains\\" + chosen_one + "\\preflop_sb_open.txt"):
+        f = open(cwd + "\\villains\\" + chosen_one + "\\preflop_sb_open.txt", "r")
+        sb_open_counter = int(f.read())
         f.close()
     sb_open_counter += 1
-    if os.path.isfile(cwd + "\\villains\\" + selected + "\\preflop_sb_open.txt"):
-        f = open(cwd + "\\villains\\" + selected + "\\preflop_sb_open.txt", "w")
+    if os.path.isfile(cwd + "\\villains\\" + chosen_one + "\\preflop_sb_open.txt"):
+        f = open(cwd + "\\villains\\" + chosen_one + "\\preflop_sb_open.txt", "w")
         f.write("\n" + str(sb_open_counter))
         f.close()
         lab_sb_open_button.config(text = str(sb_open_counter) + "%")
-    '''
+
 
 selected = ""
 
