@@ -37,7 +37,7 @@ def show():
     f.close()
 	
 options = []
-f = open(cwd + "\\names.txt", "r")
+f = open(cwd + "\\villains\\names.txt", "r")
 for line in f:
     #print(line)
     options.append(line.strip())
@@ -107,8 +107,10 @@ sb_check_button.grid(column=0, row=10)
 
 entry_new_villain = Entry(root)
 entry_new_villain.grid(column=0, row=11)
-save_new_villain_button = Button( root , text = "Create new Villain" , command = show )
+save_new_villain_button = Button( root , text = "New" , command = show )
 save_new_villain_button.grid(column=1, row=11)
+delete_villain_button = Button( root , text = "Delete" , command = show )
+delete_villain_button.grid(column=2, row=11)
 
 # Execute tkinter
 root.mainloop()
