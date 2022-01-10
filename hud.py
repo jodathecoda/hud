@@ -3,6 +3,7 @@ import os
 # Import module
 import shutil
 from tkinter import *
+from pathlib import Path
 
 # Create object
 root = Tk()
@@ -10,6 +11,8 @@ root.title("HUD")
 
 global cwd
 cwd = os.getcwd()
+
+options = []
 
 # Adjust size
 root.geometry( "250x300" )
@@ -27,38 +30,48 @@ def new_vil():
     if os.path.isdir(cwd + "\\villains\\" + the_new_one):
         pass
     else:
-        shutil.copytree(cwd + "\\villains\\template\\", cwd + "\\villains\\" + the_new_one) 
+        shutil.copytree(cwd + "\\villains\\template\\", cwd + "\\villains\\" + the_new_one)
+        f = open(cwd + "\\villains\\names.txt", "a")
+        f.write("\n")
+        f.write(the_new_one)
+        f.close()
 
 def sb_open():
     sb_open_counter = 0
-    f = open(cwd + "\\sb_open_counter.txt", "r")
-    for line in f:
-        sb_open_counter = int(line.strip())
-    f.close()
+    if os.path.isfile(cwd + "\\villains\\" + selected + "\\preflop_sb_open.txt"):
+        f = open(cwd + "\\villains\\" + selected + "\\preflop_sb_open.txt", "r")
+        for line in f:
+            sb_open_counter = int(line.strip())
+        f.close()
     sb_open_counter += 1
-    f = open(cwd + "\\sb_open_counter.txt", "w")
-    f.write(str(sb_open_counter))
-    f.close()
-    lab_sb_open_button.config(text = str(sb_open_counter) + "%")
+    if os.path.isfile(cwd + "\\villains\\" + selected + "\\preflop_sb_open.txt"):
+        f = open(cwd + "\\villains\\" + selected + "\\preflop_sb_open.txt", "w")
+        f.write("\n" + str(sb_open_counter))
+        f.close()
+        lab_sb_open_button.config(text = str(sb_open_counter) + "%")
 
 selected = ""
 
 # Change the label text
 def show():
     label1.config( text = clicked.get() )
-    f = open(cwd + "\\selected.txt", "w")
-    f.write(label1.cget("text"))
     selected = label1.cget("text")
     root.title("HUD " + selected)
-    f.close()
-	
-options = []
+
+'''	
 f = open(cwd + "\\villains\\names.txt", "r")
 for line in f:
     #print(line)
     options.append(line.strip())
 f.close()
-
+'''
+for path in Path(cwd + "\\villains\\").iterdir():
+    if path.is_dir():
+        last_part = os.path.basename(path)
+        if "template" not in last_part:
+            options.append(last_part)
+        else:
+            pass
 # Dropdown menu options
 '''
 options = [
@@ -76,7 +89,7 @@ options = [
 clicked = StringVar()
 
 # initial menu text
-clicked.set( "Monday" )
+clicked.set( "Villain:" )
 
 # Create Dropdown menu
 drop = OptionMenu( root , clicked , *options )
