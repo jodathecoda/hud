@@ -50,7 +50,7 @@ def sb_open():
         f = open(cwd + "\\villains\\" + chosen_one + "\\preflop_sb_open.txt", "w")
         f.write("\n" + str(sb_open_counter))
         f.close()
-        lab_sb_open_button.config(text = str(sb_open_counter) + "%")
+        label2.config(text = " --- PREFLOP SB --- #" + str(sb_open_counter))
 
 
 selected = ""
@@ -71,7 +71,7 @@ def show():
         f = open(cwd + "\\villains\\" + chosen_one + "\\preflop_sb_open.txt", "r")
         sb_open_counter = int(f.read())
         f.close()
-        lab_sb_open_button.config(text = str(sb_open_counter) + "%")
+        label2.config(text = " --- PREFLOP SB --- #" + str(sb_open_counter))
 
 '''	
 f = open(cwd + "\\villains\\names.txt", "r")
