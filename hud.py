@@ -220,6 +220,10 @@ def select():
     global sb_preflop_sum
     global bb_preflop_sum
     global sb_postflop_sum
+
+    global sb_preflop_sum
+    global sb_pre_open_counter
+
     label1.config( text = clicked.get() )
     selected = label1.cget("text")
     root.title("HUD " + selected)
@@ -253,6 +257,17 @@ def select():
         sb_postflop_sum = sb_postflop_counter
         f.close()
         label4.config(text = " --- POSTFLOP SB --- #" + str(sb_postflop_counter))
+    #preflop open counter
+    if os.path.isfile(cwd + "\\villains\\" + chosen_one + "\\preflop_sb_open.txt"):
+        f = open(cwd + "\\villains\\" + chosen_one + "\\preflop_sb_open.txt", "r")
+        sb_pre_open_counter = int(f.read())
+        f.close()
+    sb_pre_open_counter += 1
+    if os.path.isfile(cwd + "\\villains\\" + chosen_one + "\\preflop_sb_open.txt"):
+        f = open(cwd + "\\villains\\" + chosen_one + "\\preflop_sb_open.txt", "w")
+        f.write(str(sb_pre_open_counter))
+        f.close()
+        lab_sb_open_button.config(text = " " + str(round(sb_pre_open_counter/sb_preflop_sum * 100,1)) + "%")
 
 def show():
     pass
