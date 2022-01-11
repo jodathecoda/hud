@@ -72,7 +72,7 @@ def sb_fold():
 selected = ""
 
 # Change the label text
-def show():
+def select():
     label1.config( text = clicked.get() )
     selected = label1.cget("text")
     root.title("HUD " + selected)
@@ -83,19 +83,15 @@ def show():
     chosen_one = f.read().strip()
     f.close()
     sb_preflop_counter = 0
-    if os.path.isfile(cwd + "\\villains\\" + chosen_one + "\\preflop_sb_open.txt"):
-        f = open(cwd + "\\villains\\" + chosen_one + "\\preflop_sb_open.txt", "r")
+    if os.path.isfile(cwd + "\\villains\\" + chosen_one + "\\preflop_sb_counter.txt"):
+        f = open(cwd + "\\villains\\" + chosen_one + "\\preflop_sb_counter.txt", "r")
         sb_preflop_counter = int(f.read())
         f.close()
         label2.config(text = " --- PREFLOP SB --- #" + str(sb_preflop_counter))
 
-'''	
-f = open(cwd + "\\villains\\names.txt", "r")
-for line in f:
-    #print(line)
-    options.append(line.strip())
-f.close()
-'''
+def show():
+    pass
+
 for path in Path(cwd + "\\villains\\").iterdir():
     if path.is_dir():
         last_part = os.path.basename(path)
@@ -128,7 +124,7 @@ drop.grid(column=0, row=0)
 #drop.pack()
 
 # Create button, it will change label text
-button = Button( root , text = "Select" , command = show )#.pack()
+button = Button( root , text = "Select" , command = select )#.pack()
 button.grid(column=1, row=0)
 
 preflop_counter_sb = 0 #number of hands
