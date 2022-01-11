@@ -36,6 +36,7 @@ def new_vil():
         f.write(the_new_one)
         f.close()
 
+#SB Preflop
 def sb_open():
     f = open(cwd + "\\neo.txt", "r")
     chosen_one = f.read().strip()
@@ -68,6 +69,55 @@ def sb_fold():
         f.close()
         label2.config(text = " --- PREFLOP SB --- #" + str(sb_preflop_counter))
 
+#BB Preflop
+def bb_fold():
+    f = open(cwd + "\\neo.txt", "r")
+    chosen_one = f.read().strip()
+    f.close()
+    bb_preflop_counter = 0
+    if os.path.isfile(cwd + "\\villains\\" + chosen_one + "\\preflop_bb_counter.txt"):
+        f = open(cwd + "\\villains\\" + chosen_one + "\\preflop_bb_counter.txt", "r")
+        bb_preflop_counter = int(f.read())
+        f.close()
+    bb_preflop_counter += 1
+    if os.path.isfile(cwd + "\\villains\\" + chosen_one + "\\preflop_bb_counter.txt"):
+        f = open(cwd + "\\villains\\" + chosen_one + "\\preflop_bb_counter.txt", "w")
+        f.write(str(bb_preflop_counter))
+        f.close()
+        label3.config(text = " --- PREFLOP BB --- #" + str(bb_preflop_counter))
+
+def bb_call():
+    f = open(cwd + "\\neo.txt", "r")
+    chosen_one = f.read().strip()
+    f.close()
+    bb_preflop_counter = 0
+    if os.path.isfile(cwd + "\\villains\\" + chosen_one + "\\preflop_bb_counter.txt"):
+        f = open(cwd + "\\villains\\" + chosen_one + "\\preflop_bb_counter.txt", "r")
+        bb_preflop_counter = int(f.read())
+        f.close()
+    bb_preflop_counter += 1
+    if os.path.isfile(cwd + "\\villains\\" + chosen_one + "\\preflop_bb_counter.txt"):
+        f = open(cwd + "\\villains\\" + chosen_one + "\\preflop_bb_counter.txt", "w")
+        f.write(str(bb_preflop_counter))
+        f.close()
+        label3.config(text = " --- PREFLOP BB --- #" + str(bb_preflop_counter))
+
+def bb_raise():
+    f = open(cwd + "\\neo.txt", "r")
+    chosen_one = f.read().strip()
+    f.close()
+    bb_preflop_counter = 0
+    if os.path.isfile(cwd + "\\villains\\" + chosen_one + "\\preflop_bb_counter.txt"):
+        f = open(cwd + "\\villains\\" + chosen_one + "\\preflop_bb_counter.txt", "r")
+        bb_preflop_counter = int(f.read())
+        f.close()
+    bb_preflop_counter += 1
+    if os.path.isfile(cwd + "\\villains\\" + chosen_one + "\\preflop_bb_counter.txt"):
+        f = open(cwd + "\\villains\\" + chosen_one + "\\preflop_bb_counter.txt", "w")
+        f.write(str(bb_preflop_counter))
+        f.close()
+        label3.config(text = " --- PREFLOP BB --- #" + str(bb_preflop_counter))
+
 
 selected = ""
 
@@ -82,12 +132,20 @@ def select():
     f = open(cwd + "\\neo.txt", "r")
     chosen_one = f.read().strip()
     f.close()
+    #sb_preflop_counter
     sb_preflop_counter = 0
     if os.path.isfile(cwd + "\\villains\\" + chosen_one + "\\preflop_sb_counter.txt"):
         f = open(cwd + "\\villains\\" + chosen_one + "\\preflop_sb_counter.txt", "r")
         sb_preflop_counter = int(f.read())
         f.close()
         label2.config(text = " --- PREFLOP SB --- #" + str(sb_preflop_counter))
+    #bb_preflop_counter
+    bb_preflop_counter = 0
+    if os.path.isfile(cwd + "\\villains\\" + chosen_one + "\\preflop_bb_counter.txt"):
+        f = open(cwd + "\\villains\\" + chosen_one + "\\preflop_bb_counter.txt", "r")
+        bb_preflop_counter = int(f.read())
+        f.close()
+        label3.config(text = " --- PREFLOP BB --- #" + str(bb_preflop_counter))
 
 def show():
     pass
@@ -99,18 +157,6 @@ for path in Path(cwd + "\\villains\\").iterdir():
             options.append(last_part)
         else:
             pass
-# Dropdown menu options
-'''
-options = [
-	"Monday",
-	"Tuesday",
-	"Wednesday",
-	"Thursday",
-	"Friday",
-	"Saturday",
-	"Sunday"
-]
-'''
 
 # datatype of menu text
 clicked = StringVar()
@@ -147,11 +193,11 @@ sb_fold_button.grid(column=0, row=3)
 
 label3 = Label( root , text = " --- PREFLOP BB --- #" + str(preflop_counter_bb))
 label3.grid(column=0, row=4)
-bb_fold_button = Button( root , text = "Fold" , command = show )#.pack()
+bb_fold_button = Button( root , text = "Fold" , command = bb_fold )#.pack()
 bb_fold_button.grid(column=0, row=5)
-bb_call_button = Button( root , text = "Call" , command = show )#.pack()
+bb_call_button = Button( root , text = "Call" , command = bb_call )#.pack()
 bb_call_button.grid(column=0, row=6)
-bb_raise_button = Button( root , text = "Raise" , command = show )#.pack()
+bb_raise_button = Button( root , text = "Raise" , command = bb_raise )#.pack()
 bb_raise_button.grid(column=0, row=7)
 
 label4 = Label( root , text = " --- POSTFLOP --- #" + str(flop_counter))
