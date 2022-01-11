@@ -70,6 +70,8 @@ def new_vil():
 def sb_open():
     global sb_preflop_sum
     global sb_pre_open_counter
+    global sb_pre_fold_counter
+
     f = open(cwd + "\\neo.txt", "r")
     chosen_one = f.read().strip()
     f.close()
@@ -77,7 +79,7 @@ def sb_open():
     sb_preflop_counter = 0
     if os.path.isfile(cwd + "\\villains\\" + chosen_one + "\\preflop_sb_counter.txt"):
         f = open(cwd + "\\villains\\" + chosen_one + "\\preflop_sb_counter.txt", "r")
-        sb_preflop_counter = int(f.read())
+        sb_preflop_counter = float(f.read())
         f.close()
     sb_preflop_counter += 1
     sb_preflop_sum = sb_preflop_counter
@@ -85,12 +87,12 @@ def sb_open():
         f = open(cwd + "\\villains\\" + chosen_one + "\\preflop_sb_counter.txt", "w")
         f.write(str(sb_preflop_counter))
         f.close()
-        label2.config(text = " --- PREFLOP SB --- #" + str(sb_preflop_sum))
+        label2.config(text = " --- PREFLOP SB --- #" + str(round(sb_preflop_sum)))
 
     #preflop open counter
     if os.path.isfile(cwd + "\\villains\\" + chosen_one + "\\preflop_sb_open.txt"):
         f = open(cwd + "\\villains\\" + chosen_one + "\\preflop_sb_open.txt", "r")
-        sb_pre_open_counter = int(f.read())
+        sb_pre_open_counter = float(f.read())
         f.close()
     sb_pre_open_counter += 1
     if os.path.isfile(cwd + "\\villains\\" + chosen_one + "\\preflop_sb_open.txt"):
@@ -102,34 +104,31 @@ def sb_open():
         else:
             lab_sb_open_button.config(text = " " + str(round(sb_pre_open_counter/sb_preflop_sum * 100,1)) + "%")
 
+    #Update also preflop fold counter
+    if os.path.isfile(cwd + "\\villains\\" + chosen_one + "\\preflop_sb_fold.txt"):
+        f = open(cwd + "\\villains\\" + chosen_one + "\\preflop_sb_fold.txt", "r")
+        sb_pre_fold_counter = float(f.read())
+        f.close()
+        if sb_preflop_sum < 1:
+            lab_sb_fold_button.config(text = " 0%")
+        else:
+            lab_sb_fold_button.config(text = " " + str(round(sb_pre_fold_counter/sb_preflop_sum * 100,1)) + "%")
+
 def sb_fold():
-    global sb_preflop_sum
-    f = open(cwd + "\\neo.txt", "r")
-    chosen_one = f.read().strip()
-    f.close()
-    sb_preflop_counter = 0
-    if os.path.isfile(cwd + "\\villains\\" + chosen_one + "\\preflop_sb_counter.txt"):
-        f = open(cwd + "\\villains\\" + chosen_one + "\\preflop_sb_counter.txt", "r")
-        sb_preflop_counter = int(f.read())
-        f.close()
-    sb_preflop_counter += 1
-    sb_preflop_sum = sb_preflop_counter
-    if os.path.isfile(cwd + "\\villains\\" + chosen_one + "\\preflop_sb_counter.txt"):
-        f = open(cwd + "\\villains\\" + chosen_one + "\\preflop_sb_counter.txt", "w")
-        f.write(str(sb_preflop_counter))
-        f.close()
-        label2.config(text = " --- PREFLOP SB --- #" + str(sb_preflop_sum))
+    pass
 
 #BB Preflop
 def bb_fold():
     global bb_preflop_sum
+    global sb_pre_open_counter
+    global sb_pre_fold_counter
     f = open(cwd + "\\neo.txt", "r")
     chosen_one = f.read().strip()
     f.close()
     bb_preflop_counter = 0
     if os.path.isfile(cwd + "\\villains\\" + chosen_one + "\\preflop_bb_counter.txt"):
         f = open(cwd + "\\villains\\" + chosen_one + "\\preflop_bb_counter.txt", "r")
-        bb_preflop_counter = int(f.read())
+        bb_preflop_counter = float(f.read())
         bb_preflop_sum = bb_preflop_counter
         f.close()
     bb_preflop_counter += 1
@@ -138,7 +137,7 @@ def bb_fold():
         f = open(cwd + "\\villains\\" + chosen_one + "\\preflop_bb_counter.txt", "w")
         f.write(str(bb_preflop_counter))
         f.close()
-        label3.config(text = " --- PREFLOP BB --- #" + str(bb_preflop_sum))
+        label3.config(text = " --- PREFLOP BB --- #" + str(round(bb_preflop_sum)))
 
 def bb_call():
     global bb_preflop_sum
@@ -148,7 +147,7 @@ def bb_call():
     bb_preflop_counter = 0
     if os.path.isfile(cwd + "\\villains\\" + chosen_one + "\\preflop_bb_counter.txt"):
         f = open(cwd + "\\villains\\" + chosen_one + "\\preflop_bb_counter.txt", "r")
-        bb_preflop_counter = int(f.read())
+        bb_preflop_counter = float(f.read())
         bb_preflop_sum = bb_preflop_counter
         f.close()
     bb_preflop_counter += 1
@@ -157,7 +156,7 @@ def bb_call():
         f = open(cwd + "\\villains\\" + chosen_one + "\\preflop_bb_counter.txt", "w")
         f.write(str(bb_preflop_counter))
         f.close()
-        label3.config(text = " --- PREFLOP BB --- #" + str(bb_preflop_sum))
+        label3.config(text = " --- PREFLOP BB --- #" + str(round(bb_preflop_sum)))
 
 def bb_raise():
     global bb_preflop_sum
@@ -167,7 +166,7 @@ def bb_raise():
     bb_preflop_counter = 0
     if os.path.isfile(cwd + "\\villains\\" + chosen_one + "\\preflop_bb_counter.txt"):
         f = open(cwd + "\\villains\\" + chosen_one + "\\preflop_bb_counter.txt", "r")
-        bb_preflop_counter = int(f.read())
+        bb_preflop_counter = float(f.read())
         bb_preflop_sum = bb_preflop_counter
         f.close()
     bb_preflop_counter += 1
@@ -176,7 +175,7 @@ def bb_raise():
         f = open(cwd + "\\villains\\" + chosen_one + "\\preflop_bb_counter.txt", "w")
         f.write(str(bb_preflop_counter))
         f.close()
-        label3.config(text = " --- PREFLOP BB --- #" + str(bb_preflop_sum))
+        label3.config(text = " --- PREFLOP BB --- #" + str(round(bb_preflop_sum)))
 
 #SB Postflop
 def sb_cbet():
@@ -187,7 +186,7 @@ def sb_cbet():
     sb_postflop_counter = 0
     if os.path.isfile(cwd + "\\villains\\" + chosen_one + "\\postflop_counter.txt"):
         f = open(cwd + "\\villains\\" + chosen_one + "\\postflop_counter.txt", "r")
-        sb_postflop_counter = int(f.read())
+        sb_postflop_counter = float(f.read())
         sb_postflop_sum = sb_postflop_counter
         f.close()
     sb_postflop_counter += 1
@@ -196,7 +195,7 @@ def sb_cbet():
         f = open(cwd + "\\villains\\" + chosen_one + "\\postflop_counter.txt", "w")
         f.write(str(sb_postflop_counter))
         f.close()
-        label4.config(text = " --- POSTFLOP SB --- #" + str(sb_postflop_sum))
+        label4.config(text = " --- POSTFLOP SB --- #" + str(round(sb_postflop_sum)))
 
 def sb_check():
     global sb_postflop_sum
@@ -206,7 +205,7 @@ def sb_check():
     sb_postflop_counter = 0
     if os.path.isfile(cwd + "\\villains\\" + chosen_one + "\\postflop_counter.txt"):
         f = open(cwd + "\\villains\\" + chosen_one + "\\postflop_counter.txt", "r")
-        sb_postflop_counter = int(f.read())
+        sb_postflop_counter = float(f.read())
         sb_postflop_sum = sb_postflop_counter
         f.close()
     sb_postflop_counter += 1
@@ -215,7 +214,7 @@ def sb_check():
         f = open(cwd + "\\villains\\" + chosen_one + "\\postflop_counter.txt", "w")
         f.write(str(sb_postflop_counter))
         f.close()
-        label4.config(text = " --- POSTFLOP SB --- #" + str(sb_postflop_sum))
+        label4.config(text = " --- POSTFLOP SB --- #" + str(round(sb_postflop_sum)))
 
 
 selected = ""
@@ -242,38 +241,37 @@ def select():
     sb_preflop_counter = 0
     if os.path.isfile(cwd + "\\villains\\" + chosen_one + "\\preflop_sb_counter.txt"):
         f = open(cwd + "\\villains\\" + chosen_one + "\\preflop_sb_counter.txt", "r")
-        sb_preflop_counter = int(f.read())
+        sb_preflop_counter = float(f.read())
         sb_preflop_sum = sb_preflop_counter
         f.close()
-        label2.config(text = " --- PREFLOP SB --- #" + str(sb_preflop_counter))
+        label2.config(text = " --- PREFLOP SB --- #" + str(round(sb_preflop_counter)))
     #bb_preflop_counter
     bb_preflop_counter = 0
     if os.path.isfile(cwd + "\\villains\\" + chosen_one + "\\preflop_bb_counter.txt"):
         f = open(cwd + "\\villains\\" + chosen_one + "\\preflop_bb_counter.txt", "r")
-        bb_preflop_counter = int(f.read())
+        bb_preflop_counter = float(f.read())
         bb_preflop_sum = bb_preflop_counter
         f.close()
-        label3.config(text = " --- PREFLOP BB --- #" + str(bb_preflop_counter))
+        label3.config(text = " --- PREFLOP BB --- #" + str(round(bb_preflop_counter)))
     #sb_postflop_counter
     sb_postflop_counter = 0
     if os.path.isfile(cwd + "\\villains\\" + chosen_one + "\\postflop_counter.txt"):
         f = open(cwd + "\\villains\\" + chosen_one + "\\postflop_counter.txt", "r")
-        sb_postflop_counter = int(f.read())
+        sb_postflop_counter = float(f.read())
         sb_postflop_sum = sb_postflop_counter
         f.close()
-        label4.config(text = " --- POSTFLOP SB --- #" + str(sb_postflop_counter))
+        label4.config(text = " --- POSTFLOP SB --- #" + str(round(sb_postflop_counter)))
     #preflop open counter
     if os.path.isfile(cwd + "\\villains\\" + chosen_one + "\\preflop_sb_open.txt"):
         f = open(cwd + "\\villains\\" + chosen_one + "\\preflop_sb_open.txt", "r")
-        sb_pre_open_counter = int(f.read())
+        sb_pre_open_counter = float(f.read())
         f.close()
-    sb_pre_open_counter += 1
     if os.path.isfile(cwd + "\\villains\\" + chosen_one + "\\preflop_sb_open.txt"):
         f = open(cwd + "\\villains\\" + chosen_one + "\\preflop_sb_open.txt", "w")
         f.write(str(sb_pre_open_counter))
         f.close()
         if sb_preflop_sum < 1:
-            lab_sb_open_button.config(text = " 0%")
+            lab_sb_open_button.config(text = " 0.0%")
         else:
             lab_sb_open_button.config(text = " " + str(round(sb_pre_open_counter/sb_preflop_sum * 100,1)) + "%")
 
@@ -312,16 +310,19 @@ flop_counter = 0
 label1 = Label( root , text = " " )
 label1.grid(column=2, row=0)
 
-label2 = Label( root , text = " --- PREFLOP SB --- #" + str(preflop_counter_sb) )
+label2 = Label( root , text = " --- PREFLOP SB --- #" + str(round(preflop_counter_sb)) )
 label2.grid(column=0, row=1)
 sb_open_button = Button( root , text = "Open" , command = sb_open )#.pack()
 sb_open_button.grid(column=0, row=2)
-lab_sb_open_button = Label( root , text = " 0%" )
+lab_sb_open_button = Label( root , text = " 0.0%" )
 lab_sb_open_button.grid(column=1, row=2)
+
 sb_fold_button = Button( root , text = "Fold" , command = sb_fold )#.pack()
 sb_fold_button.grid(column=0, row=3)
+lab_sb_fold_button = Label( root , text = " 0.0%" )
+lab_sb_fold_button.grid(column=1, row=3)
 
-label3 = Label( root , text = " --- PREFLOP BB --- #" + str(preflop_counter_bb))
+label3 = Label( root , text = " --- PREFLOP BB --- #" + str(round(preflop_counter_bb)))
 label3.grid(column=0, row=4)
 bb_fold_button = Button( root , text = "Fold" , command = bb_fold )#.pack()
 bb_fold_button.grid(column=0, row=5)
@@ -330,7 +331,7 @@ bb_call_button.grid(column=0, row=6)
 bb_raise_button = Button( root , text = "Raise" , command = bb_raise )#.pack()
 bb_raise_button.grid(column=0, row=7)
 
-label4 = Label( root , text = " --- POSTFLOP SB --- #" + str(flop_counter))
+label4 = Label( root , text = " --- POSTFLOP SB --- #" + str(round(flop_counter)))
 label4.grid(column=0, row=8)
 sb_cbet_button = Button( root , text = "Cbet" , command = sb_cbet )#.pack()
 sb_cbet_button.grid(column=0, row=9)
