@@ -67,9 +67,11 @@ def new_vil():
 #SB Preflop
 def sb_open():
     global sb_preflop_sum
+    global sb_pre_open_counter
     f = open(cwd + "\\neo.txt", "r")
     chosen_one = f.read().strip()
     f.close()
+    #preflop counter
     sb_preflop_counter = 0
     if os.path.isfile(cwd + "\\villains\\" + chosen_one + "\\preflop_sb_counter.txt"):
         f = open(cwd + "\\villains\\" + chosen_one + "\\preflop_sb_counter.txt", "r")
@@ -82,6 +84,18 @@ def sb_open():
         f.write(str(sb_preflop_counter))
         f.close()
         label2.config(text = " --- PREFLOP SB --- #" + str(sb_preflop_sum))
+
+    #preflop open counter
+    if os.path.isfile(cwd + "\\villains\\" + chosen_one + "\\preflop_sb_open.txt"):
+        f = open(cwd + "\\villains\\" + chosen_one + "\\preflop_sb_open.txt", "r")
+        sb_pre_open_counter = int(f.read())
+        f.close()
+    sb_pre_open_counter += 1
+    if os.path.isfile(cwd + "\\villains\\" + chosen_one + "\\preflop_sb_open.txt"):
+        f = open(cwd + "\\villains\\" + chosen_one + "\\preflop_sb_open.txt", "w")
+        f.write(str(sb_pre_open_counter))
+        f.close()
+        lab_sb_open_button.config(text = " " + str(round(sb_pre_open_counter/sb_preflop_sum * 100,1)) + "%")
 
 def sb_fold():
     global sb_preflop_sum
