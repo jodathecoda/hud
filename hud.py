@@ -40,17 +40,33 @@ def sb_open():
     f = open(cwd + "\\neo.txt", "r")
     chosen_one = f.read().strip()
     f.close()
-    sb_open_counter = 0
-    if os.path.isfile(cwd + "\\villains\\" + chosen_one + "\\preflop_sb_open.txt"):
-        f = open(cwd + "\\villains\\" + chosen_one + "\\preflop_sb_open.txt", "r")
-        sb_open_counter = int(f.read())
+    sb_preflop_counter = 0
+    if os.path.isfile(cwd + "\\villains\\" + chosen_one + "\\preflop_sb_counter.txt"):
+        f = open(cwd + "\\villains\\" + chosen_one + "\\preflop_sb_counter.txt", "r")
+        sb_preflop_counter = int(f.read())
         f.close()
-    sb_open_counter += 1
-    if os.path.isfile(cwd + "\\villains\\" + chosen_one + "\\preflop_sb_open.txt"):
-        f = open(cwd + "\\villains\\" + chosen_one + "\\preflop_sb_open.txt", "w")
-        f.write("\n" + str(sb_open_counter))
+    sb_preflop_counter += 1
+    if os.path.isfile(cwd + "\\villains\\" + chosen_one + "\\preflop_sb_counter.txt"):
+        f = open(cwd + "\\villains\\" + chosen_one + "\\preflop_sb_counter.txt", "w")
+        f.write(str(sb_preflop_counter))
         f.close()
-        label2.config(text = " --- PREFLOP SB --- #" + str(sb_open_counter))
+        label2.config(text = " --- PREFLOP SB --- #" + str(sb_preflop_counter))
+
+def sb_fold():
+    f = open(cwd + "\\neo.txt", "r")
+    chosen_one = f.read().strip()
+    f.close()
+    sb_preflop_counter = 0
+    if os.path.isfile(cwd + "\\villains\\" + chosen_one + "\\preflop_sb_counter.txt"):
+        f = open(cwd + "\\villains\\" + chosen_one + "\\preflop_sb_counter.txt", "r")
+        sb_preflop_counter = int(f.read())
+        f.close()
+    sb_preflop_counter += 1
+    if os.path.isfile(cwd + "\\villains\\" + chosen_one + "\\preflop_sb_counter.txt"):
+        f = open(cwd + "\\villains\\" + chosen_one + "\\preflop_sb_counter.txt", "w")
+        f.write(str(sb_preflop_counter))
+        f.close()
+        label2.config(text = " --- PREFLOP SB --- #" + str(sb_preflop_counter))
 
 
 selected = ""
@@ -66,12 +82,12 @@ def show():
     f = open(cwd + "\\neo.txt", "r")
     chosen_one = f.read().strip()
     f.close()
-    sb_open_counter = 0
+    sb_preflop_counter = 0
     if os.path.isfile(cwd + "\\villains\\" + chosen_one + "\\preflop_sb_open.txt"):
         f = open(cwd + "\\villains\\" + chosen_one + "\\preflop_sb_open.txt", "r")
-        sb_open_counter = int(f.read())
+        sb_preflop_counter = int(f.read())
         f.close()
-        label2.config(text = " --- PREFLOP SB --- #" + str(sb_open_counter))
+        label2.config(text = " --- PREFLOP SB --- #" + str(sb_preflop_counter))
 
 '''	
 f = open(cwd + "\\villains\\names.txt", "r")
@@ -130,7 +146,7 @@ sb_open_button = Button( root , text = "Open" , command = sb_open )#.pack()
 sb_open_button.grid(column=0, row=2)
 lab_sb_open_button = Label( root , text = " 0%" )
 lab_sb_open_button.grid(column=1, row=2)
-sb_fold_button = Button( root , text = "Fold" , command = show )#.pack()
+sb_fold_button = Button( root , text = "Fold" , command = sb_fold )#.pack()
 sb_fold_button.grid(column=0, row=3)
 
 label3 = Label( root , text = " --- PREFLOP BB --- #" + str(preflop_counter_bb))
