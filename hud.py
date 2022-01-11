@@ -118,6 +118,39 @@ def bb_raise():
         f.close()
         label3.config(text = " --- PREFLOP BB --- #" + str(bb_preflop_counter))
 
+#SB Postflop
+def sb_cbet():
+    f = open(cwd + "\\neo.txt", "r")
+    chosen_one = f.read().strip()
+    f.close()
+    sb_postflop_counter = 0
+    if os.path.isfile(cwd + "\\villains\\" + chosen_one + "\\postflop_counter.txt"):
+        f = open(cwd + "\\villains\\" + chosen_one + "\\postflop_counter.txt", "r")
+        sb_postflop_counter = int(f.read())
+        f.close()
+    sb_postflop_counter += 1
+    if os.path.isfile(cwd + "\\villains\\" + chosen_one + "\\postflop_counter.txt"):
+        f = open(cwd + "\\villains\\" + chosen_one + "\\postflop_counter.txt", "w")
+        f.write(str(sb_postflop_counter))
+        f.close()
+        label4.config(text = " --- POSTFLOP SB --- #" + str(sb_postflop_counter))
+
+def sb_check():
+    f = open(cwd + "\\neo.txt", "r")
+    chosen_one = f.read().strip()
+    f.close()
+    sb_postflop_counter = 0
+    if os.path.isfile(cwd + "\\villains\\" + chosen_one + "\\postflop_counter.txt"):
+        f = open(cwd + "\\villains\\" + chosen_one + "\\postflop_counter.txt", "r")
+        sb_postflop_counter = int(f.read())
+        f.close()
+    sb_postflop_counter += 1
+    if os.path.isfile(cwd + "\\villains\\" + chosen_one + "\\postflop_counter.txt"):
+        f = open(cwd + "\\villains\\" + chosen_one + "\\postflop_counter.txt", "w")
+        f.write(str(sb_postflop_counter))
+        f.close()
+        label4.config(text = " --- POSTFLOP SB --- #" + str(sb_postflop_counter))
+
 
 selected = ""
 
@@ -146,6 +179,13 @@ def select():
         bb_preflop_counter = int(f.read())
         f.close()
         label3.config(text = " --- PREFLOP BB --- #" + str(bb_preflop_counter))
+    #sb_postflop_counter
+    sb_postflop_counter = 0
+    if os.path.isfile(cwd + "\\villains\\" + chosen_one + "\\postflop_counter.txt"):
+        f = open(cwd + "\\villains\\" + chosen_one + "\\postflop_counter.txt", "r")
+        sb_postflop_counter = int(f.read())
+        f.close()
+        label4.config(text = " --- POSTFLOP SB --- #" + str(sb_postflop_counter))
 
 def show():
     pass
@@ -200,11 +240,11 @@ bb_call_button.grid(column=0, row=6)
 bb_raise_button = Button( root , text = "Raise" , command = bb_raise )#.pack()
 bb_raise_button.grid(column=0, row=7)
 
-label4 = Label( root , text = " --- POSTFLOP --- #" + str(flop_counter))
+label4 = Label( root , text = " --- POSTFLOP SB --- #" + str(flop_counter))
 label4.grid(column=0, row=8)
-sb_cbet_button = Button( root , text = "Cbet" , command = show )#.pack()
+sb_cbet_button = Button( root , text = "Cbet" , command = sb_cbet )#.pack()
 sb_cbet_button.grid(column=0, row=9)
-sb_check_button = Button( root , text = "Check" , command = show )#.pack()
+sb_check_button = Button( root , text = "Check" , command = sb_check )#.pack()
 sb_check_button.grid(column=0, row=10)
 
 entry_new_villain = Entry(root)
