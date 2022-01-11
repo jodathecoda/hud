@@ -16,9 +16,29 @@ global sb_preflop_sum
 global bb_preflop_sum
 global sb_postflop_sum
 
+global sb_pre_open_counter
+global sb_pre_fold_counter
+
+global bb_pre_fold_counter
+global bb_pre_call_counter
+global bb_pre_raise_counter
+
+global sb_post_cbet_counter
+global sb_post_check_counter
+
 sb_preflop_sum = 0
 bb_preflop_sum = 0
 sb_postflop_sum = 0
+
+sb_pre_open_counter = 0
+sb_pre_fold_counter = 0
+
+bb_pre_fold_counter = 0
+bb_pre_call_counter = 0
+bb_pre_raise_counter = 0
+
+sb_post_cbet_counter = 0
+sb_post_check_counter = 0
 
 options = []
 
