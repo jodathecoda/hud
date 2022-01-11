@@ -49,6 +49,8 @@ def del_vil():
     for_delete = entry_new_villain.get()
     if "template" in for_delete:
         pass
+    elif len(for_delete) < 1:
+        pass
     else:
         if os.path.isdir(cwd + "\\villains\\" + for_delete):
             shutil.rmtree(cwd + "\\villains\\" + for_delete)
@@ -95,7 +97,10 @@ def sb_open():
         f = open(cwd + "\\villains\\" + chosen_one + "\\preflop_sb_open.txt", "w")
         f.write(str(sb_pre_open_counter))
         f.close()
-        lab_sb_open_button.config(text = " " + str(round(sb_pre_open_counter/sb_preflop_sum * 100,1)) + "%")
+        if sb_preflop_sum < 1:
+            lab_sb_open_button.config(text = " 0%")
+        else:
+            lab_sb_open_button.config(text = " " + str(round(sb_pre_open_counter/sb_preflop_sum * 100,1)) + "%")
 
 def sb_fold():
     global sb_preflop_sum
@@ -267,7 +272,10 @@ def select():
         f = open(cwd + "\\villains\\" + chosen_one + "\\preflop_sb_open.txt", "w")
         f.write(str(sb_pre_open_counter))
         f.close()
-        lab_sb_open_button.config(text = " " + str(round(sb_pre_open_counter/sb_preflop_sum * 100,1)) + "%")
+        if sb_preflop_sum < 1:
+            lab_sb_open_button.config(text = " 0%")
+        else:
+            lab_sb_open_button.config(text = " " + str(round(sb_pre_open_counter/sb_preflop_sum * 100,1)) + "%")
 
 def show():
     pass
