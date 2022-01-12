@@ -87,7 +87,7 @@ def sb_open():
         f = open(cwd + "\\villains\\" + chosen_one + "\\preflop_sb_counter.txt", "w")
         f.write(str(sb_preflop_counter))
         f.close()
-        label2.config(text = " --- PREFLOP SB --- #" + str(round(sb_preflop_sum)))
+        label2.config(text = " --- PREFLOP SB --- #" + str(round(sb_preflop_sum)), fg='gold3')
 
     #preflop open counter
     if os.path.isfile(cwd + "\\villains\\" + chosen_one + "\\preflop_sb_open.txt"):
@@ -134,7 +134,7 @@ def sb_fold():
         f = open(cwd + "\\villains\\" + chosen_one + "\\preflop_sb_counter.txt", "w")
         f.write(str(sb_preflop_counter))
         f.close()
-        label2.config(text = " --- PREFLOP SB --- #" + str(round(sb_preflop_sum)))
+        label2.config(text = " --- PREFLOP SB --- #" + str(round(sb_preflop_sum)), fg='gold3')
 
     #preflop fold counter
     if os.path.isfile(cwd + "\\villains\\" + chosen_one + "\\preflop_sb_fold.txt"):
@@ -181,7 +181,7 @@ def bb_fold():
         f = open(cwd + "\\villains\\" + chosen_one + "\\preflop_bb_counter.txt", "w")
         f.write(str(bb_preflop_counter))
         f.close()
-        label3.config(text = " --- PREFLOP BB --- #" + str(round(bb_preflop_sum)))
+        label3.config(text = " --- PREFLOP BB --- #" + str(round(bb_preflop_sum)), fg='purple')
 
 def bb_call():
     global bb_preflop_sum
@@ -200,7 +200,7 @@ def bb_call():
         f = open(cwd + "\\villains\\" + chosen_one + "\\preflop_bb_counter.txt", "w")
         f.write(str(bb_preflop_counter))
         f.close()
-        label3.config(text = " --- PREFLOP BB --- #" + str(round(bb_preflop_sum)))
+        label3.config(text = " --- PREFLOP BB --- #" + str(round(bb_preflop_sum)) , fg='purple')
 
 def bb_raise():
     global bb_preflop_sum
@@ -219,7 +219,7 @@ def bb_raise():
         f = open(cwd + "\\villains\\" + chosen_one + "\\preflop_bb_counter.txt", "w")
         f.write(str(bb_preflop_counter))
         f.close()
-        label3.config(text = " --- PREFLOP BB --- #" + str(round(bb_preflop_sum)))
+        label3.config(text = " --- PREFLOP BB --- #" + str(round(bb_preflop_sum)), fg='purple')
 
 #SB Postflop
 def sb_cbet():
@@ -239,7 +239,7 @@ def sb_cbet():
         f = open(cwd + "\\villains\\" + chosen_one + "\\postflop_counter.txt", "w")
         f.write(str(sb_postflop_counter))
         f.close()
-        label4.config(text = " --- POSTFLOP SB --- #" + str(round(sb_postflop_sum)))
+        label4.config(text = " --- POSTFLOP SB --- #" + str(round(sb_postflop_sum)),fg='gold3')
 
 def sb_check():
     global sb_postflop_sum
@@ -258,7 +258,7 @@ def sb_check():
         f = open(cwd + "\\villains\\" + chosen_one + "\\postflop_counter.txt", "w")
         f.write(str(sb_postflop_counter))
         f.close()
-        label4.config(text = " --- POSTFLOP SB --- #" + str(round(sb_postflop_sum)))
+        label4.config(text = " --- POSTFLOP SB --- #" + str(round(sb_postflop_sum)),fg='gold3')
 
 
 selected = ""
@@ -269,9 +269,15 @@ def select():
     global bb_preflop_sum
     global sb_postflop_sum
 
-    global sb_preflop_sum
     global sb_pre_open_counter
     global sb_pre_fold_counter
+
+    global bb_pre_fold_counter
+    global bb_pre_call_counter
+    global bb_pre_raise_counter
+
+    global sb_post_cbet_counter
+    global sb_post_check_counter
 
     label1.config( text = clicked.get() )
     selected = label1.cget("text")
@@ -289,7 +295,7 @@ def select():
         sb_preflop_counter = float(f.read())
         sb_preflop_sum = sb_preflop_counter
         f.close()
-        label2.config(text = " --- PREFLOP SB --- #" + str(round(sb_preflop_counter)))
+        label2.config(text = " --- PREFLOP SB --- #" + str(round(sb_preflop_counter)),fg='gold3')
     #bb_preflop_counter
     bb_preflop_counter = 0
     if os.path.isfile(cwd + "\\villains\\" + chosen_one + "\\preflop_bb_counter.txt"):
@@ -297,7 +303,7 @@ def select():
         bb_preflop_counter = float(f.read())
         bb_preflop_sum = bb_preflop_counter
         f.close()
-        label3.config(text = " --- PREFLOP BB --- #" + str(round(bb_preflop_counter)))
+        label3.config(text = " --- PREFLOP BB --- #" + str(round(bb_preflop_counter)), fg='purple')
     #sb_postflop_counter
     sb_postflop_counter = 0
     if os.path.isfile(cwd + "\\villains\\" + chosen_one + "\\postflop_counter.txt"):
@@ -305,8 +311,8 @@ def select():
         sb_postflop_counter = float(f.read())
         sb_postflop_sum = sb_postflop_counter
         f.close()
-        label4.config(text = " --- POSTFLOP SB --- #" + str(round(sb_postflop_counter)))
-    #preflop open counter
+        label4.config(text = " --- POSTFLOP SB --- #" + str(round(sb_postflop_counter)),fg='gold3')
+    #preflop sb open %
     if os.path.isfile(cwd + "\\villains\\" + chosen_one + "\\preflop_sb_open.txt"):
         f = open(cwd + "\\villains\\" + chosen_one + "\\preflop_sb_open.txt", "r")
         sb_pre_open_counter = float(f.read())
@@ -319,7 +325,7 @@ def select():
             lab_sb_open_button.config(text = " 0.0%")
         else:
             lab_sb_open_button.config(text = " " + str(round(sb_pre_open_counter/sb_preflop_sum * 100,1)) + "%")
-    #preflop fold counter
+    #preflop sb fold %
     if os.path.isfile(cwd + "\\villains\\" + chosen_one + "\\preflop_sb_fold.txt"):
         f = open(cwd + "\\villains\\" + chosen_one + "\\preflop_sb_fold.txt", "r")
         sb_pre_fold_counter = float(f.read())
@@ -332,6 +338,32 @@ def select():
             lab_sb_fold_button.config(text = " 0.0%")
         else:
             lab_sb_fold_button.config(text = " " + str(round(sb_pre_fold_counter/sb_preflop_sum * 100,1)) + "%")
+    #preflop bb fold %
+    if os.path.isfile(cwd + "\\villains\\" + chosen_one + "\\preflop_bb_fold.txt"):
+        f = open(cwd + "\\villains\\" + chosen_one + "\\preflop_bb_fold.txt", "r")
+        bb_pre_fold_counter = float(f.read())
+        f.close()
+    if os.path.isfile(cwd + "\\villains\\" + chosen_one + "\\preflop_bb_fold.txt"):
+        f = open(cwd + "\\villains\\" + chosen_one + "\\preflop_bb_fold.txt", "w")
+        f.write(str(bb_pre_fold_counter))
+        f.close()
+        if bb_preflop_sum < 1:
+            lab_bb_fold_button.config(text = " 0.0%")
+        else:
+            lab_bb_fold_button.config(text = " " + str(round(bb_pre_fold_counter/bb_preflop_sum * 100,1)) + "%")
+    #preflop call fold %
+    if os.path.isfile(cwd + "\\villains\\" + chosen_one + "\\preflop_bb_call.txt"):
+        f = open(cwd + "\\villains\\" + chosen_one + "\\preflop_bb_call.txt", "r")
+        bb_pre_call_counter = float(f.read())
+        f.close()
+    if os.path.isfile(cwd + "\\villains\\" + chosen_one + "\\preflop_bb_call.txt"):
+        f = open(cwd + "\\villains\\" + chosen_one + "\\preflop_bb_call.txt", "w")
+        f.write(str(bb_pre_call_counter))
+        f.close()
+        if bb_preflop_sum < 1:
+            lab_bb_call_button.config(text = " 0.0%")
+        else:
+            lab_bb_call_button.config(text = " " + str(round(bb_pre_call_counter/bb_preflop_sum * 100,1)) + "%")
 
 def show():
     pass
@@ -382,19 +414,35 @@ lab_sb_fold_button.grid(column=1, row=3)
 
 label3 = Label( root , text = " --- PREFLOP BB --- #" + str(round(preflop_counter_bb)), fg='purple')
 label3.grid(column=0, row=4)
+
 bb_fold_button = Button( root , text = "FOLD" , command = bb_fold, fg='blue' )
 bb_fold_button.grid(column=0, row=5)
+lab_bb_fold_button = Label( root , text = " 0.0%" )
+lab_bb_fold_button.grid(column=1, row=5)
+
 bb_call_button = Button( root , text = "CALL" , command = bb_call, fg='green' )
 bb_call_button.grid(column=0, row=6)
+lab_bb_call_button = Label( root , text = " 0.0%" )
+lab_bb_call_button.grid(column=1, row=6)
+
+
 bb_raise_button = Button( root , text = "RAISE" , command = bb_raise, fg='red' )
 bb_raise_button.grid(column=0, row=7)
+lab_bb_raise_button = Label( root , text = " 0.0%" )
+lab_bb_raise_button.grid(column=1, row=7)
 
 label4 = Label( root , text = " --- POSTFLOP SB --- #" + str(round(flop_counter)),fg='gold3')
 label4.grid(column=0, row=8)
+
 sb_cbet_button = Button( root , text = "cbet" , command = sb_cbet, fg='orange' )
 sb_cbet_button.grid(column=0, row=9)
+lab_sb_cbet_button = Label( root , text = " 0.0%" )
+lab_sb_cbet_button.grid(column=1, row=9)
+
 sb_check_button = Button( root , text = "check" , command = sb_check, fg='RoyalBlue3' )
 sb_check_button.grid(column=0, row=10)
+lab_sb_check_button = Label( root , text = " 0.0%" )
+lab_sb_check_button.grid(column=1, row=10)
 
 entry_new_villain = Entry(root)
 entry_new_villain.grid(column=0, row=11)
