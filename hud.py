@@ -228,15 +228,15 @@ def sb_cbet():
     chosen_one = f.read().strip()
     f.close()
     sb_postflop_counter = 0
-    if os.path.isfile(cwd + "\\villains\\" + chosen_one + "\\postflop_counter.txt"):
-        f = open(cwd + "\\villains\\" + chosen_one + "\\postflop_counter.txt", "r")
+    if os.path.isfile(cwd + "\\villains\\" + chosen_one + "\\postflop_sb_counter.txt"):
+        f = open(cwd + "\\villains\\" + chosen_one + "\\postflop_sb_counter.txt", "r")
         sb_postflop_counter = float(f.read())
         sb_postflop_sum = sb_postflop_counter
         f.close()
     sb_postflop_counter += 1
     sb_postflop_sum = sb_postflop_counter
-    if os.path.isfile(cwd + "\\villains\\" + chosen_one + "\\postflop_counter.txt"):
-        f = open(cwd + "\\villains\\" + chosen_one + "\\postflop_counter.txt", "w")
+    if os.path.isfile(cwd + "\\villains\\" + chosen_one + "\\postflop_sb_counter.txt"):
+        f = open(cwd + "\\villains\\" + chosen_one + "\\postflop_sb_counter.txt", "w")
         f.write(str(sb_postflop_counter))
         f.close()
         label4.config(text = " --- POSTFLOP SB --- #" + str(round(sb_postflop_sum)),fg='gold3')
@@ -247,15 +247,15 @@ def sb_check():
     chosen_one = f.read().strip()
     f.close()
     sb_postflop_counter = 0
-    if os.path.isfile(cwd + "\\villains\\" + chosen_one + "\\postflop_counter.txt"):
-        f = open(cwd + "\\villains\\" + chosen_one + "\\postflop_counter.txt", "r")
+    if os.path.isfile(cwd + "\\villains\\" + chosen_one + "\\postflop_sb_counter.txt"):
+        f = open(cwd + "\\villains\\" + chosen_one + "\\postflop_sb_counter.txt", "r")
         sb_postflop_counter = float(f.read())
         sb_postflop_sum = sb_postflop_counter
         f.close()
     sb_postflop_counter += 1
     sb_postflop_sum = sb_postflop_counter
-    if os.path.isfile(cwd + "\\villains\\" + chosen_one + "\\postflop_counter.txt"):
-        f = open(cwd + "\\villains\\" + chosen_one + "\\postflop_counter.txt", "w")
+    if os.path.isfile(cwd + "\\villains\\" + chosen_one + "\\postflop_sb_counter.txt"):
+        f = open(cwd + "\\villains\\" + chosen_one + "\\postflop_sb_counter.txt", "w")
         f.write(str(sb_postflop_counter))
         f.close()
         label4.config(text = " --- POSTFLOP SB --- #" + str(round(sb_postflop_sum)),fg='gold3')
@@ -351,7 +351,7 @@ def select():
             lab_bb_fold_button.config(text = " 0.0%")
         else:
             lab_bb_fold_button.config(text = " " + str(round(bb_pre_fold_counter/bb_preflop_sum * 100,1)) + "%")
-    #preflop call fold %
+    #preflop bb call %
     if os.path.isfile(cwd + "\\villains\\" + chosen_one + "\\preflop_bb_call.txt"):
         f = open(cwd + "\\villains\\" + chosen_one + "\\preflop_bb_call.txt", "r")
         bb_pre_call_counter = float(f.read())
@@ -364,6 +364,32 @@ def select():
             lab_bb_call_button.config(text = " 0.0%")
         else:
             lab_bb_call_button.config(text = " " + str(round(bb_pre_call_counter/bb_preflop_sum * 100,1)) + "%")
+    #preflop bb raise %
+    if os.path.isfile(cwd + "\\villains\\" + chosen_one + "\\preflop_bb_raise.txt"):
+        f = open(cwd + "\\villains\\" + chosen_one + "\\preflop_bb_raise.txt", "r")
+        bb_pre_raise_counter = float(f.read())
+        f.close()
+    if os.path.isfile(cwd + "\\villains\\" + chosen_one + "\\preflop_bb_raise.txt"):
+        f = open(cwd + "\\villains\\" + chosen_one + "\\preflop_bb_raise.txt", "w")
+        f.write(str(bb_pre_raise_counter))
+        f.close()
+        if bb_preflop_sum < 1:
+            lab_bb_raise_button.config(text = " 0.0%")
+        else:
+            lab_bb_raise_button.config(text = " " + str(round(bb_pre_raise_counter/bb_preflop_sum * 100,1)) + "%")
+    #postlop sb cbet %
+    if os.path.isfile(cwd + "\\villains\\" + chosen_one + "\\preflop_sb_cbet.txt"):
+        f = open(cwd + "\\villains\\" + chosen_one + "\\preflop_sb_cbet.txt", "r")
+        sb_post_cbet_counter = float(f.read())
+        f.close()
+    if os.path.isfile(cwd + "\\villains\\" + chosen_one + "\\preflop_sb_cbet.txt"):
+        f = open(cwd + "\\villains\\" + chosen_one + "\\preflop_sb_cbet.txt", "w")
+        f.write(str(bb_pre_raise_counter))
+        f.close()
+        if bb_preflop_sum < 1:
+            lab_sb_cbet_button.config(text = " 0.0%")
+        else:
+            lab_sb_cbet_button.config(text = " " + str(round(sb_post_cbet_counter/sb_postflop_sum * 100,1)) + "%")
 
 def show():
     pass
