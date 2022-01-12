@@ -582,7 +582,7 @@ def select():
         if sb_postflop_sum < 1:
             lab_sb_check_button.config(text = " 0.0%")
         else:
-            lab_sb_check_button.config(text = " " + str(round(sb_post_cbet_counter/sb_postflop_sum * 100,1)) + "%")
+            lab_sb_check_button.config(text = " " + str(round(sb_post_check_counter/sb_postflop_sum * 100,1)) + "%")
 
 def show():
     pass
