@@ -122,7 +122,7 @@ def sb_fold():
     f = open(cwd + "\\neo.txt", "r")
     chosen_one = f.read().strip()
     f.close()
-    #preflop counter
+    #preflop sb counter
     sb_preflop_counter = 0
     if os.path.isfile(cwd + "\\villains\\" + chosen_one + "\\preflop_sb_counter.txt"):
         f = open(cwd + "\\villains\\" + chosen_one + "\\preflop_sb_counter.txt", "r")
@@ -136,7 +136,7 @@ def sb_fold():
         f.close()
         label2.config(text = " --- PREFLOP SB --- #" + str(round(sb_preflop_sum)), fg='gold3')
 
-    #preflop fold counter
+    #preflop sb fold %
     if os.path.isfile(cwd + "\\villains\\" + chosen_one + "\\preflop_sb_fold.txt"):
         f = open(cwd + "\\villains\\" + chosen_one + "\\preflop_sb_fold.txt", "r")
         sb_pre_fold_counter = float(f.read())
@@ -151,7 +151,7 @@ def sb_fold():
         else:
             lab_sb_fold_button.config(text = " " + str(round(sb_pre_fold_counter/sb_preflop_sum * 100,1)) + "%")
 
-    #Update also preflop open counter
+    #Update also preflop sb open counter
     if os.path.isfile(cwd + "\\villains\\" + chosen_one + "\\preflop_sb_open.txt"):
         f = open(cwd + "\\villains\\" + chosen_one + "\\preflop_sb_open.txt", "r")
         sb_pre_open_counter = float(f.read())
@@ -165,7 +165,9 @@ def sb_fold():
 def bb_fold():
     global bb_preflop_sum
     global sb_pre_open_counter
-    global sb_pre_fold_counter
+    global bb_pre_fold_counter
+
+    #preflop bb counter
     f = open(cwd + "\\neo.txt", "r")
     chosen_one = f.read().strip()
     f.close()
@@ -182,6 +184,23 @@ def bb_fold():
         f.write(str(bb_preflop_counter))
         f.close()
         label3.config(text = " --- PREFLOP BB --- #" + str(round(bb_preflop_sum)), fg='purple')
+    #preflop bb fold %
+    if os.path.isfile(cwd + "\\villains\\" + chosen_one + "\\preflop_bb_fold.txt"):
+        f = open(cwd + "\\villains\\" + chosen_one + "\\preflop_bb_fold.txt", "r")
+        bb_pre_fold_counter = float(f.read())
+        f.close()
+    bb_pre_fold_counter += 1
+    if os.path.isfile(cwd + "\\villains\\" + chosen_one + "\\preflop_bb_fold.txt"):
+        f = open(cwd + "\\villains\\" + chosen_one + "\\preflop_bb_fold.txt", "w")
+        f.write(str(bb_pre_fold_counter))
+        f.close()
+        if bb_preflop_sum < 1:
+            lab_bb_fold_button.config(text = " 0%")
+        else:
+            lab_bb_fold_button.config(text = " " + str(round(bb_pre_fold_counter/bb_preflop_sum * 100,1)) + "%")
+
+    #Update also preflop bb & call % 
+    
 
 def bb_call():
     global bb_preflop_sum
