@@ -28,6 +28,7 @@ global sb_post_cbet_counter
 global sb_post_check_counter
 
 img = ImageTk.PhotoImage(Image.open("test.png"))
+img2 = ImageTk.PhotoImage(Image.open("test2.png"))
 
 sb_preflop_sum = 0
 bb_preflop_sum = 0
@@ -283,6 +284,7 @@ def bb_call():
             lab_bb_raise_button.config(text = "0.0%")
         else:
             lab_bb_raise_button.config(text = " " + str(round(bb_pre_raise_counter/bb_preflop_sum * 100,1)) + "%")
+    label_image.config(image = img)
 
 def bb_raise():
     global bb_preflop_sum
@@ -322,6 +324,8 @@ def bb_raise():
             lab_bb_raise_button.config(text = "0.0%")
         else:
             lab_bb_raise_button.config(text = " " + str(round(bb_pre_raise_counter/bb_preflop_sum * 100,1)) + "%")
+        label_image.config(image = img2)
+
 
     #Update also preflop bb & fold % call
     #fold %
