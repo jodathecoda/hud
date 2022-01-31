@@ -4,6 +4,7 @@ import os
 import shutil
 from tkinter import *
 from pathlib import Path
+from PIL import ImageTk, Image
 
 # Create object
 root = Tk()
@@ -26,6 +27,8 @@ global bb_pre_raise_counter
 global sb_post_cbet_counter
 global sb_post_check_counter
 
+img = ImageTk.PhotoImage(Image.open("test.png"))
+
 sb_preflop_sum = 0
 bb_preflop_sum = 0
 sb_postflop_sum = 0
@@ -43,7 +46,7 @@ sb_post_check_counter = 0
 options = []
 
 # Adjust size
-root.geometry( "250x300" )
+root.geometry( "465x300" )
 
 def del_vil():
     for_delete = entry_new_villain.get()
@@ -669,6 +672,11 @@ save_new_villain_button = Button( root , text = "New" , command = new_vil )
 save_new_villain_button.grid(column=1, row=11)
 delete_villain_button = Button( root , text = "Delete" , command = del_vil )
 delete_villain_button.grid(column=2, row=11)
+
+label_image = Label(root, image = img)
+label_image.grid(row=0, column=3, columnspan=10, rowspan=10,
+           sticky=W+E+N+S, padx=5, pady=5)
+
 
 # Execute tkinter
 root.mainloop()
