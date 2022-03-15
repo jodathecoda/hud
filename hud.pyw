@@ -83,6 +83,27 @@ img_RCF_10_85_5   = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\RCF_10_85_5.p
 img_RCF_5_90_5    = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\RCF_5_90_5.png"))
 img_RCF_0_95_5    = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\RCF_0_95_5.png"))
 
+#Fold = 10
+img_RCF_90_0_10     = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\RCF_90_0_10.png"))
+img_RCF_85_5_10     = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\RCF_85_5_10.png"))
+img_RCF_80_10_10    = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\RCF_80_10_10.png"))
+img_RCF_75_15_10    = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\RCF_75_15_10.png"))
+img_RCF_70_20_10    = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\RCF_70_20_10.png"))
+img_RCF_65_25_10    = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\RCF_65_25_10.png"))
+img_RCF_60_30_10    = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\RCF_60_30_10.png"))
+img_RCF_55_35_10    = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\RCF_55_35_10.png"))
+img_RCF_50_40_10    = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\RCF_50_40_10.png"))
+img_RCF_45_45_10    = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\RCF_45_45_10.png"))
+img_RCF_40_50_10    = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\RCF_40_50_10.png"))
+img_RCF_35_55_10    = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\RCF_35_55_10.png"))
+img_RCF_30_60_10    = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\RCF_30_60_10.png"))
+img_RCF_25_65_10    = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\RCF_25_65_10.png"))
+img_RCF_20_70_10    = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\RCF_20_70_10.png"))
+img_RCF_15_75_10    = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\RCF_15_75_10.png"))
+img_RCF_10_80_10    = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\RCF_10_80_10.png"))
+img_RCF_5_85_10     = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\RCF_5_85_10.png"))
+img_RCF_0_90_10     = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\RCF_0_90_10.png"))
+
 sb_preflop_sum = 0
 bb_preflop_sum = 0
 sb_postflop_sum = 0
