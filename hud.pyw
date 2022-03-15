@@ -27,8 +27,61 @@ global bb_pre_raise_counter
 global sb_post_cbet_counter
 global sb_post_check_counter
 
-img = ImageTk.PhotoImage(Image.open("test.png"))
-img2 = ImageTk.PhotoImage(Image.open("test2.png"))
+#chameleons
+img_chameleons = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\chameleons.png"))
+
+#not supported
+img_not_supported = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\not_supported.png"))
+
+#open-fold sb
+img_of_0_100      = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\of_0_100.png"))
+img_of_5_95       = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\of_5_95.png"))
+img_of_10_90      = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\of_10_90.png"))
+img_of_15_85      = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\of_15_85.png"))
+img_of_20_80      = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\of_20_80.png"))
+img_of_25_75      = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\of_25_75.png"))
+img_of_30_70      = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\of_30_70.png"))
+img_of_35_65      = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\of_35_65.png"))
+img_of_40_60      = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\of_40_60.png"))
+img_of_45_55      = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\of_45_55.png"))
+img_of_50_50      = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\of_50_50.png"))
+img_of_55_45      = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\of_55_45.png"))
+img_of_60_40      = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\of_60_40.png"))
+img_of_65_35      = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\of_65_35.png"))
+img_of_70_30      = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\of_70_30.png"))
+img_of_75_25      = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\of_75_25.png"))
+img_of_80_20      = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\of_80_20.png"))
+img_of_85_15      = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\of_85_15.png"))
+img_of_90_10      = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\of_90_10.png"))
+img_of_95_5       = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\of_95_5.png"))
+img_of_100_0      = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\of_100_0.png"))
+
+#Raise-Call-Fold bb
+#Fold = 0
+#img_RCF_95_5_0    = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\RCF_95_5_0.png"))
+#img_RCF_90_10_0   = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\RCF_90_10_0.png"))
+
+#Fold = 5
+img_RCF_95_0_5    = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\RCF_95_0_5.png"))
+img_RCF_90_5_5    = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\RCF_90_5_5.png"))
+img_RCF_85_10_5   = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\RCF_85_10_5.png"))
+img_RCF_80_15_5   = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\RCF_80_15_5.png"))
+img_RCF_75_20_5   = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\RCF_75_20_5.png"))
+img_RCF_70_25_5   = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\RCF_70_25_5.png"))
+img_RCF_65_30_5   = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\RCF_65_30_5.png"))
+img_RCF_60_35_5   = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\RCF_60_35_5.png"))
+img_RCF_55_40_5   = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\RCF_55_40_5.png"))
+img_RCF_50_45_5   = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\RCF_50_45_5.png"))
+img_RCF_45_50_5   = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\RCF_45_50_5.png"))
+img_RCF_40_55_5   = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\RCF_40_55_5.png"))
+img_RCF_35_60_5   = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\RCF_35_60_5.png"))
+img_RCF_30_65_5   = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\RCF_30_65_5.png"))
+img_RCF_25_70_5   = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\RCF_25_70_5.png"))
+img_RCF_20_75_5   = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\RCF_20_75_5.png"))
+img_RCF_15_80_5   = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\RCF_15_80_5.png"))
+img_RCF_10_85_5   = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\RCF_10_85_5.png"))
+img_RCF_5_90_5    = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\RCF_5_90_5.png"))
+img_RCF_0_95_5    = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\RCF_0_95_5.png"))
 
 sb_preflop_sum = 0
 bb_preflop_sum = 0
@@ -284,7 +337,7 @@ def bb_call():
             lab_bb_raise_button.config(text = "0.0%")
         else:
             lab_bb_raise_button.config(text = " " + str(round(bb_pre_raise_counter/bb_preflop_sum * 100,1)) + "%")
-    label_image.config(image = img)
+    label_image.config(image = img_chameleons)
 
 def bb_raise():
     global bb_preflop_sum
@@ -324,7 +377,7 @@ def bb_raise():
             lab_bb_raise_button.config(text = "0.0%")
         else:
             lab_bb_raise_button.config(text = " " + str(round(bb_pre_raise_counter/bb_preflop_sum * 100,1)) + "%")
-        label_image.config(image = img2)
+        label_image.config(image = img_chameleons)
 
 
     #Update also preflop bb & fold % call
@@ -677,7 +730,7 @@ save_new_villain_button.grid(column=1, row=11)
 delete_villain_button = Button( root , text = "Delete" , command = del_vil )
 delete_villain_button.grid(column=2, row=11)
 
-label_image = Label(root, image = img)
+label_image = Label(root, image = img_chameleons)
 label_image.grid(row=0, column=3, columnspan=10, rowspan=10,
            sticky=W+E+N+S, padx=5, pady=5)
 
