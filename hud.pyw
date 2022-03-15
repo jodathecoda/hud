@@ -104,6 +104,27 @@ img_RCF_10_80_10    = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\RCF_10_80_1
 img_RCF_5_85_10     = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\RCF_5_85_10.png"))
 img_RCF_0_90_10     = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\RCF_0_90_10.png"))
 
+#Fold = 15
+img_RCF_85_0_15      = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\RCF_85_0_15.png"))
+img_RCF_80_5_15      = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\RCF_80_5_15.png"))
+img_RCF_75_10_15     = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\RCF_75_10_15.png"))
+img_RCF_70_15_15     = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\RCF_70_15_15.png"))
+img_RCF_65_20_15     = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\RCF_65_20_15.png"))
+img_RCF_60_25_15     = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\RCF_60_25_15.png"))
+img_RCF_55_30_15     = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\RCF_55_30_15.png"))
+img_RCF_50_35_15     = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\RCF_50_35_15.png"))
+img_RCF_45_40_15     = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\RCF_45_40_15.png"))
+img_RCF_40_45_15     = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\RCF_40_45_15.png"))
+img_RCF_35_50_15     = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\RCF_35_50_15.png"))
+img_RCF_30_55_15     = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\RCF_30_55_15.png"))
+img_RCF_25_60_15     = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\RCF_25_60_15.png"))
+img_RCF_20_65_15     = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\RCF_20_65_15.png"))
+img_RCF_15_70_15     = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\RCF_15_70_15.png"))
+img_RCF_10_75_15     = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\RCF_10_75_15.png"))
+img_RCF_5_80_15      = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\RCF_5_80_15.png"))
+img_RCF_0_85_15      = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\RCF_0_85_15.png"))
+
+
 sb_preflop_sum = 0
 bb_preflop_sum = 0
 sb_postflop_sum = 0
