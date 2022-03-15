@@ -58,8 +58,8 @@ img_of_100_0      = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\of_100_0.png"
 
 #Raise-Call-Fold bb
 #Fold = 0
-#img_RCF_95_5_0    = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\RCF_95_5_0.png"))
-#img_RCF_90_10_0   = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\RCF_90_10_0.png"))
+img_RCF_95_5_0    = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\RCF_95_5_0.png"))
+img_RCF_90_10_0   = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\RCF_90_10_0.png"))
 
 #Fold = 5
 img_RCF_95_0_5    = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\RCF_95_0_5.png"))
