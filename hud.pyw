@@ -227,6 +227,9 @@ img_RCF_10_50_40      = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\RCF_10_50
 img_RCF_5_55_40      = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\RCF_5_55_40.png"))
 img_RCF_0_60_40      = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\RCF_0_60_40.png"))
 
+#Fold = 45
+img_RCF_55_0_45      = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\RCF_55_0_45.png"))
+
 sb_preflop_sum = 0
 bb_preflop_sum = 0
 sb_postflop_sum = 0
