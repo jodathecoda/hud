@@ -354,8 +354,14 @@ def constructRCF(r,c,f):
 
 def construct_of(o,f):
     temp_img = img_not_supported
-    if o < 2:
-        temp_img = img_of_0_100
+    if o > 96:
+        temp_img = img_of_100_0
+    elif o > 91:
+        temp_img = img_of_95_5
+    elif o > 86:
+        temp_img = img_of_90_10
+    elif o > 81:
+        temp_img = img_of_85_15
     return temp_img
 
 def del_vil():
@@ -426,7 +432,7 @@ def sb_open():
             lab_sb_fold_button.config(text = " 0.0%")
         else:
             lab_sb_fold_button.config(text = " " + str(round(sb_pre_fold_counter/sb_preflop_sum * 100,1)) + "%")
-    chosen_img = construct_of(0,round(sb_pre_fold_counter/sb_preflop_sum * 100,1))
+    chosen_img = construct_of(round(sb_pre_open_counter/sb_preflop_sum * 100,1),round(sb_pre_fold_counter/sb_preflop_sum * 100,1))
     label_image.config(image = chosen_img)
 
 def sb_fold():
