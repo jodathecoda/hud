@@ -324,11 +324,11 @@ img_RCF_5_5_90      = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\RCF_5_5_90.
 img_RCF_0_10_90      = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\RCF_0_10_90.png"))
 
 #Fold = 95
-#img_RCF_5_0_95      = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\RCF_5_0_95.png"))
+img_RCF_5_0_95      = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\RCF_5_0_95.png"))
 img_RCF_0_5_95      = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\RCF_0_5_95.png"))
 
 #Fold = 100
-#img_RCF_0_0_100      = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\RCF_0_0_100.png"))
+img_RCF_0_0_100      = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\RCF_0_0_100.png"))
 
 sb_preflop_sum = 0
 bb_preflop_sum = 0
