@@ -32,6 +32,7 @@ img_chameleons = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\chameleons.png")
 
 #not supported
 img_not_supported = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\not_supported.png"))
+chosen_img = img_not_supported
 
 #open-fold sb
 img_of_0_100      = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\of_0_100.png"))
@@ -347,6 +348,12 @@ options = []
 
 # Adjust size
 root.geometry( "465x300" )
+
+def constructRCF(r,c,f):
+    pass
+
+def construct_of(o,f):
+    pass
 
 def del_vil():
     for_delete = entry_new_villain.get()
