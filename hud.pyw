@@ -353,7 +353,10 @@ def constructRCF(r,c,f):
     pass
 
 def construct_of(o,f):
-    pass
+    temp_img = img_not_supported
+    if o < 2:
+        temp_img = img_of_0_100
+    return temp_img
 
 def del_vil():
     for_delete = entry_new_villain.get()
@@ -423,6 +426,8 @@ def sb_open():
             lab_sb_fold_button.config(text = " 0.0%")
         else:
             lab_sb_fold_button.config(text = " " + str(round(sb_pre_fold_counter/sb_preflop_sum * 100,1)) + "%")
+    chosen_img = construct_of(0,round(sb_pre_fold_counter/sb_preflop_sum * 100,1))
+    label_image.config(image = chosen_img)
 
 def sb_fold():
     global sb_preflop_sum
@@ -590,7 +595,7 @@ def bb_call():
             lab_bb_raise_button.config(text = "0.0%")
         else:
             lab_bb_raise_button.config(text = " " + str(round(bb_pre_raise_counter/bb_preflop_sum * 100,1)) + "%")
-    label_image.config(image = img_chameleons)
+    label_image.config(image = chosen_img)
 
 def bb_raise():
     global bb_preflop_sum
@@ -630,7 +635,7 @@ def bb_raise():
             lab_bb_raise_button.config(text = "0.0%")
         else:
             lab_bb_raise_button.config(text = " " + str(round(bb_pre_raise_counter/bb_preflop_sum * 100,1)) + "%")
-        label_image.config(image = img_chameleons)
+        label_image.config(image = chosen_img)
 
 
     #Update also preflop bb & fold % call
@@ -983,7 +988,7 @@ save_new_villain_button.grid(column=1, row=11)
 delete_villain_button = Button( root , text = "Delete" , command = del_vil )
 delete_villain_button.grid(column=2, row=11)
 
-label_image = Label(root, image = img_chameleons)
+label_image = Label(root, image = chosen_img)
 label_image.grid(row=0, column=3, columnspan=10, rowspan=10,
            sticky=W+E+N+S, padx=5, pady=5)
 
