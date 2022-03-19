@@ -59,6 +59,7 @@ img_of_100_0      = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\of_100_0.png"
 
 #Raise-Call-Fold bb
 #Fold = 0
+img_RCF_100_0_0   = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\RCF_100_0_0.png"))
 img_RCF_95_5_0    = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\RCF_95_5_0.png"))
 img_RCF_90_10_0   = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\RCF_90_10_0.png"))
 img_RCF_85_15_0   = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\RCF_85_15_0.png"))
@@ -350,7 +351,556 @@ options = []
 root.geometry( "465x300" )
 
 def constructRCF(r,c,f):
-    pass
+    temp_img = img_not_supported
+    # Fold = 0
+    if f < 1:
+        if c < 1:
+            temp_img = img_RCF_100_0_0
+        elif c < 6:
+            temp_img = img_RCF_95_5_0
+        elif c < 11:
+            temp_img = img_RCF_90_10_0
+        elif c < 16:
+            temp_img = img_RCF_85_15_0
+        elif c < 21:
+            temp_img = img_RCF_80_20_0
+        elif c < 26:
+            temp_img = img_RCF_75_25_0
+        elif c < 31:
+            temp_img = img_RCF_70_30_0
+        elif c < 36:
+            temp_img = img_RCF_65_35_0
+        elif c < 41:
+            temp_img = img_RCF_60_40_0
+        elif c < 46:
+            temp_img = img_RCF_55_45_0
+        elif c < 51:
+            temp_img = img_RCF_50_50_0
+        elif c < 56:
+            temp_img = img_RCF_45_55_0
+        elif c < 61:
+            temp_img = img_RCF_40_60_0
+        elif c < 66:
+            temp_img = img_RCF_35_65_0
+        elif c < 71:
+            temp_img = img_RCF_30_70_0
+        elif c < 76:
+            temp_img = img_RCF_25_75_0
+        elif c < 81:
+            temp_img = img_RCF_20_80_0
+        elif c < 86:
+            temp_img = img_RCF_15_85_0
+        elif c < 91:
+            temp_img = img_RCF_10_90_0
+        elif c < 96:
+            temp_img = img_RCF_5_95_0
+        elif c < 101:
+            temp_img = img_RCF_0_100_0
+        else:
+            temp_img = img_not_supported
+    # Fold = 5
+    elif f < 6:
+        if c < 1:
+            temp_img = img_RCF_95_0_5
+        elif c < 6:
+            temp_img = img_RCF_90_5_5
+        elif c < 11:
+            temp_img = img_RCF_85_10_5
+        elif c < 16:
+            temp_img = img_RCF_80_15_5
+        elif c < 21:
+            temp_img = img_RCF_75_20_5
+        elif c < 26:
+            temp_img = img_RCF_70_25_5
+        elif c < 31:
+            temp_img = img_RCF_65_30_5
+        elif c < 36:
+            temp_img = img_RCF_60_35_5
+        elif c < 41:
+            temp_img = img_RCF_55_40_5
+        elif c < 46:
+            temp_img = img_RCF_50_45_5
+        elif c < 51:
+            temp_img = img_RCF_45_50_5
+        elif c < 56:
+            temp_img = img_RCF_40_55_5
+        elif c < 61:
+            temp_img = img_RCF_35_60_5
+        elif c < 66:
+            temp_img = img_RCF_30_65_5
+        elif c < 71:
+            temp_img = img_RCF_25_70_5
+        elif c < 76:
+            temp_img = img_RCF_20_75_5
+        elif c < 81:
+            temp_img = img_RCF_15_80_5
+        elif c < 86:
+            temp_img = img_RCF_10_85_5
+        elif c < 91:
+            temp_img = img_RCF_5_90_5
+        elif c < 96:
+            temp_img = img_RCF_0_95_5
+        else:
+            temp_img = img_not_supported
+    # Fold = 10
+    elif f < 11:
+        if c < 1:
+            temp_img = img_RCF_90_0_10
+        elif c < 6:
+            temp_img = img_RCF_85_5_10
+        elif c < 11:
+            temp_img = img_RCF_80_10_10
+        elif c < 16:
+            temp_img = img_RCF_75_15_10
+        elif c < 21:
+            temp_img = img_RCF_70_20_10
+        elif c < 26:
+            temp_img = img_RCF_65_25_10
+        elif c < 31:
+            temp_img = img_RCF_60_30_10
+        elif c < 36:
+            temp_img = img_RCF_55_35_10
+        elif c < 41:
+            temp_img = img_RCF_50_40_10
+        elif c < 46:
+            temp_img = img_RCF_45_45_10
+        elif c < 51:
+            temp_img = img_RCF_40_50_10
+        elif c < 56:
+            temp_img = img_RCF_35_55_10
+        elif c < 61:
+            temp_img = img_RCF_30_60_10
+        elif c < 66:
+            temp_img = img_RCF_25_65_10
+        elif c < 71:
+            temp_img = img_RCF_20_70_10
+        elif c < 76:
+            temp_img = img_RCF_15_75_10
+        elif c < 81:
+            temp_img = img_RCF_10_80_10
+        elif c < 86:
+            temp_img = img_RCF_5_85_10
+        elif c < 91:
+            temp_img = img_RCF_0_90_10
+        else:
+            temp_img = img_not_supported
+    # Fold = 15
+    elif f < 16:
+        if c < 1:
+            temp_img = img_RCF_85_0_15
+        elif c < 6:
+            temp_img = img_RCF_80_5_15
+        elif c < 11:
+            temp_img = img_RCF_75_10_15
+        elif c < 16:
+            temp_img = img_RCF_70_15_15
+        elif c < 21:
+            temp_img = img_RCF_65_20_15
+        elif c < 26:
+            temp_img = img_RCF_60_25_15
+        elif c < 31:
+            temp_img = img_RCF_55_30_15
+        elif c < 36:
+            temp_img = img_RCF_50_35_15
+        elif c < 41:
+            temp_img = img_RCF_45_40_15
+        elif c < 46:
+            temp_img = img_RCF_40_45_15
+        elif c < 51:
+            temp_img = img_RCF_35_50_15
+        elif c < 56:
+            temp_img = img_RCF_30_55_15
+        elif c < 61:
+            temp_img = img_RCF_25_60_15
+        elif c < 66:
+            temp_img = img_RCF_20_65_15
+        elif c < 71:
+            temp_img = img_RCF_15_70_15
+        elif c < 76:
+            temp_img = img_RCF_10_75_15
+        elif c < 81:
+            temp_img = img_RCF_5_80_15
+        elif c < 86:
+            temp_img = img_RCF_0_85_15
+        else:
+            temp_img = img_not_supported
+    # Fold = 20
+    elif f < 21:
+        if c < 1:
+            temp_img = img_RCF_80_0_20
+        elif c < 6:
+            temp_img = img_RCF_75_5_20
+        elif c < 11:
+            temp_img = img_RCF_70_10_20
+        elif c < 16:
+            temp_img = img_RCF_65_15_20
+        elif c < 21:
+            temp_img = img_RCF_60_20_20
+        elif c < 26:
+            temp_img = img_RCF_55_25_20
+        elif c < 31:
+            temp_img = img_RCF_50_30_20
+        elif c < 36:
+            temp_img = img_RCF_45_35_20
+        elif c < 41:
+            temp_img = img_RCF_40_40_20
+        elif c < 46:
+            temp_img = img_RCF_35_45_20
+        elif c < 51:
+            temp_img = img_RCF_30_50_20
+        elif c < 56:
+            temp_img = img_RCF_25_55_20
+        elif c < 61:
+            temp_img = img_RCF_20_60_20
+        elif c < 66:
+            temp_img = img_RCF_15_65_20
+        elif c < 71:
+            temp_img = img_RCF_10_70_20
+        elif c < 76:
+            temp_img = img_RCF_5_75_20
+        elif c < 81:
+            temp_img = img_RCF_0_80_20
+        else:
+            temp_img = img_not_supported
+    # Fold = 25
+    elif f < 26:
+        if c < 1:
+            temp_img = img_RCF_75_0_25
+        elif c < 6:
+            temp_img = img_RCF_70_5_25
+        elif c < 11:
+            temp_img = img_RCF_65_10_25
+        elif c < 16:
+            temp_img = img_RCF_60_15_25
+        elif c < 21:
+            temp_img = img_RCF_55_20_25
+        elif c < 26:
+            temp_img = img_RCF_50_25_25
+        elif c < 31:
+            temp_img = img_RCF_45_30_25
+        elif c < 36:
+            temp_img = img_RCF_40_35_25
+        elif c < 41:
+            temp_img = img_RCF_35_40_25
+        elif c < 46:
+            temp_img = img_RCF_30_45_25
+        elif c < 51:
+            temp_img = img_RCF_25_50_25
+        elif c < 56:
+            temp_img = img_RCF_20_55_25
+        elif c < 61:
+            temp_img = img_RCF_15_60_25
+        elif c < 66:
+            temp_img = img_RCF_10_65_25
+        elif c < 71:
+            temp_img = img_RCF_5_70_25
+        elif c < 76:
+            temp_img = img_RCF_0_75_25
+        else:
+            temp_img = img_not_supported
+    # Fold = 30
+    elif f < 31:
+        if c < 1:
+            temp_img = img_RCF_77_0_30
+        elif c < 6:
+            temp_img = img_RCF_65_5_30
+        elif c < 11:
+            temp_img = img_RCF_60_10_30
+        elif c < 16:
+            temp_img = img_RCF_55_15_30
+        elif c < 21:
+            temp_img = img_RCF_50_20_30
+        elif c < 26:
+            temp_img = img_RCF_45_25_30
+        elif c < 31:
+            temp_img = img_RCF_40_30_30
+        elif c < 36:
+            temp_img = img_RCF_35_35_30
+        elif c < 41:
+            temp_img = img_RCF_30_40_30
+        elif c < 46:
+            temp_img = img_RCF_25_45_30
+        elif c < 51:
+            temp_img = img_RCF_20_50_30
+        elif c < 56:
+            temp_img = img_RCF_15_55_30
+        elif c < 61:
+            temp_img = img_RCF_10_60_30
+        elif c < 66:
+            temp_img = img_RCF_5_65_30
+        elif c < 71:
+            temp_img = img_RCF_0_70_30
+        else:
+            temp_img = img_not_supported
+    # Fold = 35
+    elif f < 36:
+        if c < 1:
+            temp_img = img_RCF_65_0_35
+        elif c < 6:
+            temp_img = img_RCF_60_5_35
+        elif c < 11:
+            temp_img = img_RCF_55_10_35
+        elif c < 16:
+            temp_img = img_RCF_50_15_35
+        elif c < 21:
+            temp_img = img_RCF_45_20_35
+        elif c < 26:
+            temp_img = img_RCF_40_25_35
+        elif c < 31:
+            temp_img = img_RCF_35_30_35
+        elif c < 36:
+            temp_img = img_RCF_30_35_35
+        elif c < 41:
+            temp_img = img_RCF_25_40_35
+        elif c < 46:
+            temp_img = img_RCF_20_45_35
+        elif c < 51:
+            temp_img = img_RCF_15_50_35
+        elif c < 56:
+            temp_img = img_RCF_10_55_35
+        elif c < 61:
+            temp_img = img_RCF_5_60_35
+        elif c < 66:
+            temp_img = img_RCF_0_65_35
+        else:
+            temp_img = img_not_supported
+    # Fold = 40
+    elif f < 41:
+        if c < 1:
+            temp_img = img_RCF_60_0_40
+        elif c < 6:
+            temp_img = img_RCF_55_5_40
+        elif c < 11:
+            temp_img = img_RCF_50_10_40
+        elif c < 16:
+            temp_img = img_RCF_45_15_40
+        elif c < 21:
+            temp_img = img_RCF_40_20_40
+        elif c < 26:
+            temp_img = img_RCF_35_25_40
+        elif c < 31:
+            temp_img = img_RCF_30_30_40
+        elif c < 36:
+            temp_img = img_RCF_25_35_40
+        elif c < 41:
+            temp_img = img_RCF_20_40_40
+        elif c < 46:
+            temp_img = img_RCF_15_45_40
+        elif c < 51:
+            temp_img = img_RCF_10_50_40
+        elif c < 56:
+            temp_img = img_RCF_5_55_40
+        elif c < 61:
+            temp_img = img_RCF_0_60_40
+        else:
+            temp_img = img_not_supported
+    # Fold = 45
+    elif f < 46:
+        if c < 1:
+            temp_img = img_RCF_55_0_45
+        elif c < 6:
+            temp_img = img_RCF_50_5_45
+        elif c < 11:
+            temp_img = img_RCF_45_10_45
+        elif c < 16:
+            temp_img = img_RCF_40_15_45
+        elif c < 21:
+            temp_img = img_RCF_35_20_45
+        elif c < 26:
+            temp_img = img_RCF_30_25_45
+        elif c < 31:
+            temp_img = img_RCF_25_30_45
+        elif c < 36:
+            temp_img = img_RCF_20_35_45
+        elif c < 41:
+            temp_img = img_RCF_15_40_45
+        elif c < 46:
+            temp_img = img_RCF_10_45_45
+        elif c < 51:
+            temp_img = img_RCF_5_50_45
+        elif c < 56:
+            temp_img = img_RCF_0_55_45
+        else:
+            temp_img = img_not_supported
+    # Fold = 50
+    elif f < 51:
+        if c < 1:
+            temp_img = img_RCF_50_0_50
+        elif c < 6:
+            temp_img = img_RCF_45_5_50
+        elif c < 11:
+            temp_img = img_RCF_40_10_50
+        elif c < 16:
+            temp_img = img_RCF_35_15_50
+        elif c < 21:
+            temp_img = img_RCF_30_20_50
+        elif c < 26:
+            temp_img = img_RCF_25_25_50
+        elif c < 31:
+            temp_img = img_RCF_20_30_50
+        elif c < 36:
+            temp_img = img_RCF_15_35_50
+        elif c < 41:
+            temp_img = img_RCF_10_40_50
+        elif c < 46:
+            temp_img = img_RCF_5_45_50
+        elif c < 51:
+            temp_img = img_RCF_0_50_50
+        else:
+            temp_img = img_not_supported
+    # Fold = 55
+    elif f < 56:
+        if c < 1:
+            temp_img = img_RCF_45_0_55
+        elif c < 6:
+            temp_img = img_RCF_40_5_55
+        elif c < 11:
+            temp_img = img_RCF_35_10_55
+        elif c < 16:
+            temp_img = img_RCF_30_15_55
+        elif c < 21:
+            temp_img = img_RCF_25_20_55
+        elif c < 26:
+            temp_img = img_RCF_20_25_55
+        elif c < 31:
+            temp_img = img_RCF_15_30_55
+        elif c < 36:
+            temp_img = img_RCF_10_35_55
+        elif c < 41:
+            temp_img = img_RCF_5_40_55
+        elif c < 46:
+            temp_img = img_RCF_0_45_55
+        else:
+            temp_img = img_not_supported
+    # Fold = 60
+    elif f < 61:
+        if c < 1:
+            temp_img = img_RCF_40_0_60
+        elif c < 6:
+            temp_img = img_RCF_35_5_60
+        elif c < 11:
+            temp_img = img_RCF_30_10_60
+        elif c < 16:
+            temp_img = img_RCF_25_15_60
+        elif c < 21:
+            temp_img = img_RCF_20_20_60
+        elif c < 26:
+            temp_img = img_RCF_15_25_60
+        elif c < 31:
+            temp_img = img_RCF_10_30_60
+        elif c < 36:
+            temp_img = img_RCF_5_35_60
+        elif c < 41:
+            temp_img = img_RCF_0_40_60
+        else:
+            temp_img = img_not_supported
+    # Fold = 65
+    elif f < 66:
+        if c < 1:
+            temp_img = img_RCF_35_0_65
+        elif c < 6:
+            temp_img = img_RCF_30_5_65
+        elif c < 11:
+            temp_img = img_RCF_25_10_65
+        elif c < 16:
+            temp_img = img_RCF_20_15_65
+        elif c < 21:
+            temp_img = img_RCF_15_20_65
+        elif c < 26:
+            temp_img = img_RCF_10_25_65
+        elif c < 31:
+            temp_img = img_RCF_5_30_65
+        elif c < 36:
+            temp_img = img_RCF_0_35_65
+        else:
+            temp_img = img_not_supported
+    # Fold = 70
+    elif f < 71:
+        if c < 1:
+            temp_img = img_RCF_30_0_70
+        elif c < 6:
+            temp_img = img_RCF_25_5_70
+        elif c < 11:
+            temp_img = img_RCF_20_10_70
+        elif c < 16:
+            temp_img = img_RCF_15_15_70
+        elif c < 21:
+            temp_img = img_RCF_10_20_70
+        elif c < 26:
+            temp_img = img_RCF_5_25_70
+        elif c < 31:
+            temp_img = img_RCF_0_30_70
+        else:
+            temp_img = img_not_supported
+    # Fold = 75
+    elif f < 76:
+        if c < 1:
+            temp_img = img_RCF_25_0_75
+        elif c < 6:
+            temp_img = img_RCF_20_5_75
+        elif c < 11:
+            temp_img = img_RCF_15_10_75
+        elif c < 16:
+            temp_img = img_RCF_10_15_75
+        elif c < 21:
+            temp_img = img_RCF_5_20_75
+        elif c < 26:
+            temp_img = img_RCF_0_25_75
+        else:
+            temp_img = img_not_supported
+    # Fold = 80
+    elif f < 81:
+        if c < 1:
+            temp_img = img_RCF_20_0_80
+        elif c < 6:
+            temp_img = img_RCF_15_5_80
+        elif c < 11:
+            temp_img = img_RCF_10_10_80
+        elif c < 16:
+            temp_img = img_RCF_5_15_80
+        elif c < 21:
+            temp_img = img_RCF_0_20_80
+        else:
+            temp_img = img_not_supported
+    # Fold = 85
+    elif f < 86:
+        if c < 1:
+            temp_img = img_RCF_15_0_85
+        elif c < 6:
+            temp_img = img_RCF_10_5_85
+        elif c < 11:
+            temp_img = img_RCF_5_10_85
+        elif c < 16:
+            temp_img = img_RCF_0_15_85
+        else:
+            temp_img = img_not_supported
+    # Fold = 90
+    elif f < 91:
+        if c < 1:
+            temp_img = img_RCF_10_0_90
+        elif c < 6:
+            temp_img = img_RCF_5_5_90
+        elif c < 11:
+            temp_img = img_RCF_0_10_90
+        else:
+            temp_img = img_not_supported
+    # Fold = 95
+    elif f < 96:
+        if c < 1:
+            temp_img = img_RCF_5_0_95
+        elif c < 6:
+            temp_img = img_RCF_0_5_95
+        else:
+            temp_img = img_not_supported
+    # Fold = 100
+    elif f < 101:
+        if c < 1:
+            temp_img = img_RCF_0_0_100
+        else:
+            temp_img = img_not_supported
+    else:
+            temp_img = img_not_supported
+    return temp_img
 
 def construct_of(o,f):
     temp_img = img_not_supported
@@ -577,6 +1127,8 @@ def bb_fold():
             lab_bb_raise_button.config(text = "0.0%")
         else:
             lab_bb_raise_button.config(text = " " + str(round(bb_pre_raise_counter/bb_preflop_sum * 100,1)) + "%")
+    chosen_img = constructRCF(round(bb_pre_raise_counter/bb_preflop_sum * 100,1),round(bb_pre_call_counter/bb_preflop_sum * 100,1),round(bb_pre_fold_counter/bb_preflop_sum * 100,1))
+    label_image.config(image = chosen_img)
     
 
 def bb_call():
@@ -637,6 +1189,7 @@ def bb_call():
             lab_bb_raise_button.config(text = "0.0%")
         else:
             lab_bb_raise_button.config(text = " " + str(round(bb_pre_raise_counter/bb_preflop_sum * 100,1)) + "%")
+    chosen_img = constructRCF(round(bb_pre_raise_counter/bb_preflop_sum * 100,1),round(bb_pre_call_counter/bb_preflop_sum * 100,1),round(bb_pre_fold_counter/bb_preflop_sum * 100,1))
     label_image.config(image = chosen_img)
 
 def bb_raise():
@@ -677,7 +1230,6 @@ def bb_raise():
             lab_bb_raise_button.config(text = "0.0%")
         else:
             lab_bb_raise_button.config(text = " " + str(round(bb_pre_raise_counter/bb_preflop_sum * 100,1)) + "%")
-        label_image.config(image = chosen_img)
 
 
     #Update also preflop bb & fold % call
@@ -700,6 +1252,8 @@ def bb_raise():
             lab_bb_call_button.config(text = "0.0%")
         else:
             lab_bb_call_button.config(text = " " + str(round(bb_pre_call_counter/bb_preflop_sum * 100,1)) + "%")
+    chosen_img = constructRCF(round(bb_pre_raise_counter/bb_preflop_sum * 100,1),round(bb_pre_call_counter/bb_preflop_sum * 100,1),round(bb_pre_fold_counter/bb_preflop_sum * 100,1))
+    label_image.config(image = chosen_img)
 
 #SB Postflop
 def sb_cbet():
