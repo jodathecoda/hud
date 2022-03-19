@@ -32,7 +32,7 @@ img_chameleons = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\chameleons.png")
 
 #not supported
 img_not_supported = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\not_supported.png"))
-chosen_img = img_not_supported
+chosen_img = img_chameleons
 
 #open-fold sb
 img_of_0_100      = ImageTk.PhotoImage(Image.open(cwd + "\\ranges\\of_0_100.png"))
@@ -362,6 +362,40 @@ def construct_of(o,f):
         temp_img = img_of_90_10
     elif o > 81:
         temp_img = img_of_85_15
+    elif o > 76:
+        temp_img = img_of_80_20
+    elif o > 71:
+        temp_img = img_of_75_25
+    elif o > 66:
+        temp_img = img_of_70_30
+    elif o > 61:
+        temp_img = img_of_65_35
+    elif o > 56:
+        temp_img = img_of_60_40
+    elif o > 51:
+        temp_img = img_of_55_45
+    elif o > 46:
+        temp_img = img_of_50_50
+    elif o > 41:
+        temp_img = img_of_45_55
+    elif o > 36:
+        temp_img = img_of_40_60
+    elif o > 31:
+        temp_img = img_of_35_65
+    elif o > 26:
+        temp_img = img_of_30_70
+    elif o > 21:
+        temp_img = img_of_25_75
+    elif o > 16:
+        temp_img = img_of_20_80
+    elif o > 11:
+        temp_img = img_of_15_85
+    elif o > 6:
+        temp_img = img_of_10_90
+    elif o > 1:
+        temp_img = img_of_5_95
+    else:
+        temp_img = img_of_0_100
     return temp_img
 
 def del_vil():
@@ -481,6 +515,8 @@ def sb_fold():
             lab_sb_open_button.config(text = "0.0%")
         else:
             lab_sb_open_button.config(text = " " + str(round(sb_pre_open_counter/sb_preflop_sum * 100,1)) + "%")
+    chosen_img = construct_of(round(sb_pre_open_counter/sb_preflop_sum * 100,1),round(sb_pre_fold_counter/sb_preflop_sum * 100,1))
+    label_image.config(image = chosen_img)
 
 #BB Preflop
 def bb_fold():
