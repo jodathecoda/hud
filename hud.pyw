@@ -795,7 +795,7 @@ def constructRCF(r,c,f):
         else:
             temp_img = img_not_supported
     # Fold = 65
-    elif f < 66:
+    elif f < 67:
         if c < 1:
             temp_img = img_RCF_35_0_65
         elif c < 6:
@@ -916,7 +916,7 @@ def construct_of(o,f):
         temp_img = img_of_80_20
     elif o > 71:
         temp_img = img_of_75_25
-    elif o > 66:
+    elif o > 67:
         temp_img = img_of_70_30
     elif o > 61:
         temp_img = img_of_65_35
