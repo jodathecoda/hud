@@ -348,7 +348,7 @@ sb_post_check_counter = 0
 options = []
 
 # Adjust size
-root.geometry( "465x300" )
+root.geometry( "475x305" )
 
 def constructRCF(r,c,f):
     temp_img = img_not_supported
