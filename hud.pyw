@@ -380,7 +380,7 @@ def constructRCF(r,c,f):
             temp_img = img_RCF_45_55_0
         elif c < 61:
             temp_img = img_RCF_40_60_0
-        elif c < 66:
+        elif c < 67:
             temp_img = img_RCF_35_65_0
         elif c < 71:
             temp_img = img_RCF_30_70_0
@@ -426,7 +426,7 @@ def constructRCF(r,c,f):
             temp_img = img_RCF_40_55_5
         elif c < 61:
             temp_img = img_RCF_35_60_5
-        elif c < 66:
+        elif c < 67:
             temp_img = img_RCF_30_65_5
         elif c < 71:
             temp_img = img_RCF_25_70_5
@@ -470,7 +470,7 @@ def constructRCF(r,c,f):
             temp_img = img_RCF_35_55_10
         elif c < 61:
             temp_img = img_RCF_30_60_10
-        elif c < 66:
+        elif c < 67:
             temp_img = img_RCF_25_65_10
         elif c < 71:
             temp_img = img_RCF_20_70_10
@@ -512,7 +512,7 @@ def constructRCF(r,c,f):
             temp_img = img_RCF_30_55_15
         elif c < 61:
             temp_img = img_RCF_25_60_15
-        elif c < 66:
+        elif c < 67:
             temp_img = img_RCF_20_65_15
         elif c < 71:
             temp_img = img_RCF_15_70_15
@@ -552,7 +552,7 @@ def constructRCF(r,c,f):
             temp_img = img_RCF_25_55_20
         elif c < 61:
             temp_img = img_RCF_20_60_20
-        elif c < 66:
+        elif c < 67:
             temp_img = img_RCF_15_65_20
         elif c < 71:
             temp_img = img_RCF_10_70_20
@@ -590,7 +590,7 @@ def constructRCF(r,c,f):
             temp_img = img_RCF_20_55_25
         elif c < 61:
             temp_img = img_RCF_15_60_25
-        elif c < 66:
+        elif c < 67:
             temp_img = img_RCF_10_65_25
         elif c < 71:
             temp_img = img_RCF_5_70_25
@@ -626,7 +626,7 @@ def constructRCF(r,c,f):
             temp_img = img_RCF_15_55_30
         elif c < 61:
             temp_img = img_RCF_10_60_30
-        elif c < 66:
+        elif c < 67:
             temp_img = img_RCF_5_65_30
         elif c < 71:
             temp_img = img_RCF_0_70_30
@@ -660,7 +660,7 @@ def constructRCF(r,c,f):
             temp_img = img_RCF_10_55_35
         elif c < 61:
             temp_img = img_RCF_5_60_35
-        elif c < 66:
+        elif c < 67:
             temp_img = img_RCF_0_65_35
         else:
             temp_img = img_not_supported
