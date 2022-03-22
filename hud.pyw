@@ -348,7 +348,7 @@ sb_post_check_counter = 0
 options = []
 
 # Adjust size
-root.geometry( "475x305" )
+root.geometry( "440x305" )
 
 def constructRCF(r,c,f):
     temp_img = img_not_supported
@@ -1585,7 +1585,7 @@ delete_villain_button = Button( root , text = "Delete" , command = del_vil )
 delete_villain_button.grid(column=2, row=11)
 
 label_image = Label(root, image = chosen_img)
-label_image.grid(row=0, column=3, columnspan=10, rowspan=10,
+label_image.grid(row=1, column=2, columnspan=10, rowspan=10,
            sticky=W+E+N+S, padx=5, pady=5)
 
 
