@@ -9,6 +9,7 @@ from PIL import ImageTk, Image
 # Create object
 root = Tk()
 root.title("HUD")
+root.iconbitmap("icons\chameleon_small.ico")
 
 global cwd
 cwd = os.getcwd()
